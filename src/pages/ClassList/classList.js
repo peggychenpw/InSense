@@ -29,30 +29,28 @@ const ClassList = ({ user, userLogin, userLogOut }) => {
 
 
   return (
-    <>
+    <MainContainer otherClass="class-list-container d-flex flex-wrap justify-content-center">
       <ClassHead
-        classImgDir={"banner"}
-        classImg={"banner-class-list"}
+        classImgDir={"class"}
+        classImg={"class7"}
         title={"課程體驗"}
-        content={`InSense提供客製化香水體驗課程`}
+        content={`InSense提供客製化香水體驗課程,`}
         content2={"與您一起感受香氛"}
       />
-      <MainContainer otherClass="class-list-container d-flex flex-wrap justify-content-center">
-        {classInfo.map((info) => (
-          <ClassCard
-            key={info.classId}
-            classImg={info.classImg}
-            classTime={info.classTime}
-            className={info.className}
-            classId={info.classId}
-            remainingPeople={info.remainingPeople}
-            logInStatus={user.logInStatus}
-            bookInfo={bookInfo}
-            userId={user.userInfo.userId}
-          />
-        ))}
-      </MainContainer>
-    </>
+      {classInfo.map((info) => (
+        <ClassCard
+          key={info.classId}
+          classImg={info.classImg}
+          classTime={info.classTime}
+          className={info.className}
+          classId={info.classId}
+          remainingPeople={info.remainingPeople}
+          logInStatus={user.logInStatus}
+          bookInfo={bookInfo}
+          userId={user.userInfo.userId}
+        />
+      ))}
+    </MainContainer>
   );
 };
 

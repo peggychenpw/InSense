@@ -63,19 +63,19 @@ const LandingPage = () => {
 
   return (
     // main picture
-    <div class="landing-page-container position-relative">
-      <div class="main-picture">
+    <div className="landing-page-container position-relative">
+      <div className="main-picture">
         <figure>
           <img src="/images/banner/mainpic03.jpg" alt="InSense" />
         </figure>
       </div>
-      <div class="landing-page-content position-absolute">
-        <h1 class="slogan1">SENSE OF ELEGANCE</h1>
-        <h1 class="slogan2">SENSE OF FRAGRANCE</h1>
+      <div className="landing-page-content position-absolute">
+        <h1 className="slogan1">SENSE OF ELEGANCE</h1>
+        <h1 className="slogan2">SENSE OF FRAGRANCE</h1>
         {/* discover more  */}
-        <div class="discover d-flex flex-direction-column justify-content-center align-items-center">
+        <div className="discover d-flex flex-direction-column justify-content-center align-items-center">
           <p>Discover More</p>
-          <p class="discover-arrow">
+          <p className="discover-arrow">
             <FiChevronDown className="discover-arrow" />
           </p>
         </div>

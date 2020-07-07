@@ -35,7 +35,6 @@ const ClassCard = ({ logInStatus, classImg, classTime, className, classId, remai
           >
             已參加
           </Link>) : (<Link key={classId} to={`/classdetail/${classId}`}
-            onClick={(e) => logInStatus ? '' : (e.preventDefault(), userToggleFunc())}
             className="card-btn text-center"
             role="button"
           >

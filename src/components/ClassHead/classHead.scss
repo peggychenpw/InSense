@@ -3,8 +3,9 @@
 
 .class-head{
   width: 100%;
+  margin-bottom: 32px;
   .headLeft{
-    width: 60%;
+    width: 100%;
     height: 400px;
     img{
       width: 100%;
@@ -12,16 +13,17 @@
     }
   }
   .headRight{
+    padding-top: 16px;
     padding-left: 24px;
-    padding-bottom : 72px;
     .headTitle{
+      margin-bottom: 0;
       font-size: 28px;
-      padding-bottom: 24px;
       color:$main-blue;
     }
     .headContent{
       color:$main-blue;
       line-height: 16px;
+      letter-spacing: .8px;
     }
   }
 }

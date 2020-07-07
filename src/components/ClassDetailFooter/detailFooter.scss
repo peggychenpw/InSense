@@ -25,10 +25,15 @@
   text-decoration: none;
   line-height: 50px;
   color:$main-black;
-  background:$main-orange;
+  border:2px solid $main-orange;
   font-size: 18px;
   margin: 40px 0 ;
   cursor: pointer;
+  &:hover{
+    border:2px solid transparent;
+    background:$main-orange;
+    color:$main-white;
+  }
 }
 .popup-class{
   border-radius: 0 !important;

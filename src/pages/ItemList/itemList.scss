@@ -11,6 +11,9 @@
         letter-spacing: 0.8px;
         cursor: pointer;
     }
+    &:hover .filter-btn {
+        text-decoration: underline;
+    }
 }
 .item-list-container {
     padding: 32px 0;

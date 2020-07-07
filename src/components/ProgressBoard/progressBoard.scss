@@ -1,0 +1,51 @@
+@import "../../styles/style.scss";
+
+.progress-container {
+  //   outline: 1px solid red;
+  width: 400px;
+  height: 462px;
+  background-color: $main-gray;
+
+  .progress-title {
+    font-weight: 300;
+    font-size: 28px;
+    margin: 32px 0 10px;
+    color: $main-black;
+  }
+
+  .progress-subtitle-title {
+    font-weight: 300;
+    margin: 0 0 42px;
+    font-size: 14px;
+    color: $main-black;
+  }
+
+  .progress-circle {
+    position: relative;
+    width: 210px;
+    .circle {
+      h3 {
+        font-size: 36px;
+        font-weight: 300;
+        margin-top: 12px;
+        color: $main-black;
+      }
+    }
+    p {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $main-black;
+      font-weight: 300;
+    }
+  }
+  .annual-amount {
+    margin: 32px 0 48px;
+    font-weight: 300;
+    color: $main-black;
+    span {
+      font-size: 32px;
+    }
+  }
+}

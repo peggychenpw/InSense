@@ -1,60 +1,56 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import MyBreadcrumb from "./myBreadCrumb.scss";
+import { withRouter } from "react-router-dom";
+import "./myBreadCrumb.scss";
+import { makeStyles } from "@material-ui/core/styles";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 function MyBreadcrumb(props) {
-    const pathlist = [
-        "/",
-        "/itemlist/brand/byredo",
-        "/itemlist/brand/chanel",
-        "/itemlist/brand/diptyque",
-        "/itemlist/brand/jomalone",
-        "/itemlist/brand/lelabo",
-        "/itemlist/category/home-scents",
-        "/itemlist/category/body-wash",
-        "/itemlist/category/lotions-oils",
-        "/itemlist/category/hands-care",
-        "/itemlist/category/perfume",
-        "/itemlist/category/hair-mist-travel-size",
-        "/classlist",
-        "/classdetails",
-        "/about",
-    ];
-    const pathnames = [
-        "BYREDO",
-        "CHANEL",
-        "diptyque",
-        "Jo Malone London",
-        "Le Labo",
-        "室內香氛",
-        "沐浴清潔",
-        "乳液＆保養油",
-        "香水",
-        "髮香噴霧與隨身香水",
-        "體驗課程",
-        "LFP 客製化香水課程預約",
-    ];
+    const { location, history, match, itemName, itemId } = props;
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            "& > * + *": {
+                marginTop: theme.spacing(2),
+            },
+        },
+    }));
+    const handleClick = (event) => {
+        // event.preventDefault();
+    };
 
-    // 先找出對應的中文詞
-    let locationPathname = props.location.pathname;
-    // `/product/xxxx` 轉為 `/product`
-    if (locationPathname.includes("/itemlist/brand/byredo"))
-        locationPathname = "/itemlist/brand/byredo";
+    const classes = useStyles();
 
-    const index = pathlist.findIndex((v) => v === locationPathname);
+    // console.log(location);
+    // console.log(history);
 
     return (
         <>
-            <nav aria-label="breadcrumb-wrapper">
-                <ul className="breadcrumb">
-                    <li className="breadcrumb-item">
-                        <Link to="/">InSense</Link>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                        {pathnames[index]}
-                    </li>
-                </ul>
-            </nav>
+            <div className={`${classes.root} breadcrumb-wrapper`}>
+                <Breadcrumbs
+                    separator={<NavigateNextIcon className="bread-arrow" />}
+                    aria-label="breadcrumb"
+                >
+                    <Link className="pre-state" href="/" onClick={handleClick}>
+                        InSense
+                    </Link>
+                    {!!location.state ? (
+                        <Link
+                            className="pre-state"
+                            href={location.state.prevPath}
+                            onClick={handleClick}
+                        >
+                            {location.state.listName}
+                        </Link>
+                    ) : (
+                        ""
+                    )}
+                    <Typography className="current-state">
+                        {itemName}
+                    </Typography>
+                </Breadcrumbs>
+            </div>
         </>
     );
 }

@@ -3,8 +3,17 @@
     max-width: 1140px;
     height: 40px;
     padding: 14px 24px;
-    border: crimson solid 1px;
-    .breadcrumb-item {
-        list-style: none;
+    .bread-arrow {
+        font-size: 14px;
+    }
+    .pre-state {
+        font-size: 14px;
+        color: $main-black;
+        opacity: 0.6;
+    }
+    .current-state {
+        font-size: 14px;
+        color: $main-black;
+        opacity: 0.9;
     }
 }

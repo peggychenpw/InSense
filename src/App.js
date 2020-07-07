@@ -25,10 +25,12 @@ import PasswordForgotChange from "./pages/PasswordForgotChange/passwordForgotCha
 import Modify from "./pages/Modify/modify";
 import CreditCard from "./pages/CreditCard/creditCard";
 import OrderPayMent from "./pages/OrderPayMent/orderPayMent";
+import AccountDashboard from "./pages/AccountDashboard/accountDashboard";
 
 import OrderDelivery from "./pages/OrderDelivery/orderDelivery";
-
 import ErrorPage from "./pages/ErrorPage/errorPage";
+import OrderHistory from './pages/OrderHistory/orderHistory'
+import TestUI from "./pages/TestUI/testUI";
 import ShopPage from "./pages/shop/shop.component";
 import FaqAccordion from "./components/FaqAccordion/FaqAccordion";
 import CheckoutPage from "./pages/Checkout/chechout";
@@ -79,6 +81,9 @@ function App() {
               <ShopPage />
             </Route>
             <Route path="/account">
+              <Route path="/account" exact>
+                <AccountDashboard />
+              </Route>
               <Route path="/account/classpage">
                 <ClassPage />
               </Route>
@@ -99,6 +104,9 @@ function App() {
               </Route>
               <Route path="/account/modify">
                 <Modify />
+              </Route>
+              <Route path="/account/orderhistory">
+                <OrderHistory />
               </Route>
             </Route>
             <Route path="/">

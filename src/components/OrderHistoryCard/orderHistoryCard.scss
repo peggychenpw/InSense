@@ -1,0 +1,91 @@
+@import '../../styles/style.scss';
+
+.order-history-card-container{
+  width: 100%;
+  border:1px solid rgba(85, 85, 85,.5);
+  margin:0 48px 48px 0 ;
+  &.container-opacity{
+    opacity:.5 ;
+  }
+  .order-history-orderinfo{
+    width: 30%;
+    border-right:1px solid rgba(85, 85, 85,.5);
+    padding:24px 16px;
+    &.orderinfo-cancel{
+      padding:67px 16px;
+    }
+      p{
+        width: 70%;
+        padding:8px 0;
+        margin: auto;
+        font-size: 18px;
+        color:$main-black;
+      }
+      .order-id{
+        color:$main-scarlet;
+      }
+      .link-to-order-detail{
+        display: block;
+        width: 70%;
+        text-decoration: none;
+        border:2px solid rgba(85, 85, 85,.5);
+        text-align: center;
+        padding:12px 0;
+        margin : 16px auto;
+        color:$main-black;
+        font-size: 18px;
+        &:hover{
+          background: $main-blue;
+          color:$sub-white;
+          border:2px solid transparent;
+        }
+      }
+  }
+  .order-history-deliveryinfo{
+    width: 30%;
+    margin:auto;
+    p{
+      width: 70%;
+      padding:8px 0;
+      margin: auto;
+      font-size: 18px;
+      color:$main-black;
+    }
+    .delivery-id{
+      color:$main-scarlet;
+    }
+  }
+  .order-history-itemimg{
+    width: 40%;
+    height: 200px;
+    padding: 39px 0;
+    margin:0;
+    border-left:1px solid rgba(85, 85, 85,.5);
+    p{
+      margin:0;
+      padding:8px 0;
+      color:$main-black;
+    }
+    img{
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+    div{
+      padding-left: 16px;
+    }
+    .cancelOrderBtn{
+      background: transparent;
+      border:0;
+      right: 0;
+      top:0;
+      font-size: 20px;
+      padding:12px;
+      cursor: pointer;
+      outline: transparent;
+      &:hover{
+        opacity: .5;
+      }
+    }
+  }
+}

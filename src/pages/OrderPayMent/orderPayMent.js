@@ -229,6 +229,11 @@ const OrderPayMent = ({
                 onChange={changeSafeCode}
                 aria-describedby="my-helper-text"
               />
+          <div className='credit-card-demo2'>
+            <div className='black-strip'></div>
+            <FormControl>
+              <InputLabel htmlFor="my-input">安全碼*</InputLabel>
+              <Input id="my-input" value={safeCode} onChange={changeSafeCode} aria-describedby="my-helper-text" />
             </FormControl>
           </div>
         </div>

@@ -132,7 +132,13 @@ const PasswordForgotChange = (props) => {
       console.log(obj);
 
       if (obj.success) {
-        setPasswordChanged(true)
+        setPasswordChanged(true);
+      } else {
+        if (obj.message === "VERIFICATION_INCORRECT") {
+          const errorObj = { ...formatError };
+          errorObj.verification = "認證碼錯誤*";
+          setFormatError(errorObj)
+        }
       }
     }
   };
