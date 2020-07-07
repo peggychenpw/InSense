@@ -78,7 +78,7 @@ const CheckoutPage = ({
         }
       }}
     >
-      確認訂單
+      前往購買
     </Button>
   </div>
 );

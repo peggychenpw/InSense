@@ -20,12 +20,15 @@
     align-items: flex-start;
     justify-content: center;
     padding: 10px 20px;
+    position: relative;
 
     .arrow {
       padding: 15px;
       justify-content: right;
       cursor: pointer;
-      margin-left: -15px;
+      position: absolute;
+      right: 15px;
+      bottom: 20px;
     }
 
     .name {
