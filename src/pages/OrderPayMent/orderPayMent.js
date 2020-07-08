@@ -229,119 +229,126 @@ const OrderPayMent = ({
                 onChange={changeSafeCode}
                 aria-describedby="my-helper-text"
               />
-          <div className='credit-card-demo2'>
-            <div className='black-strip'></div>
-            <FormControl>
-              <InputLabel htmlFor="my-input">安全碼*</InputLabel>
-              <Input id="my-input" value={safeCode} onChange={changeSafeCode} aria-describedby="my-helper-text" />
             </FormControl>
+            <div className="credit-card-demo2">
+              <div className="black-strip"></div>
+              <FormControl>
+                <InputLabel htmlFor="my-input">安全碼*</InputLabel>
+                <Input
+                  id="my-input"
+                  value={safeCode}
+                  onChange={changeSafeCode}
+                  aria-describedby="my-helper-text"
+                />
+              </FormControl>
+            </div>
           </div>
-        </div>
-        <div className="order-payment-subcontent subcontent-center">
-          {/* 卡別 */}
-          <CreditCardAssociation
-            association={association}
-            setAssociation={setassociation}
-          />
+          <div className="order-payment-subcontent subcontent-center">
+            {/* 卡別 */}
+            <CreditCardAssociation
+              association={association}
+              setAssociation={setassociation}
+            />
 
-          <CreditCardNumber
-            cardNumberFirst={cardNumberFirst}
-            cardNumberSecond={cardNumberSecond}
-            cardNumberThird={cardNumberThird}
-            cardNumberForth={cardNumberForth}
-            setCardNumberFirst={setCardNumberFirst}
-            setCardNumberSecond={setCardNumberSecond}
-            setCardNumberThird={setCardNumberThird}
-            setCardNumbeForth={setCardNumbeForth}
-          />
-          <div className="d-flex align-items-center payment-safe-code">
+            <CreditCardNumber
+              cardNumberFirst={cardNumberFirst}
+              cardNumberSecond={cardNumberSecond}
+              cardNumberThird={cardNumberThird}
+              cardNumberForth={cardNumberForth}
+              setCardNumberFirst={setCardNumberFirst}
+              setCardNumberSecond={setCardNumberSecond}
+              setCardNumberThird={setCardNumberThird}
+              setCardNumbeForth={setCardNumbeForth}
+            />
+            <div className="d-flex align-items-center payment-safe-code">
+              <FormControl>
+                <InputLabel htmlFor="my-input">安全碼*</InputLabel>
+                <Input
+                  id="my-input"
+                  value={safeCode}
+                  onChange={changeSafeCode}
+                  aria-describedby="my-helper-text"
+                />
+              </FormControl>
+              <p> (3碼) </p>
+            </div>
+
+            <div className="subcontent-date">
+              到期日期
+              <div className="credit-card-date">
+                <CreditCardExpiration
+                  cdMonth={cdMonth}
+                  cdYear={cdYear}
+                  setCdMonth={setcdMonth}
+                  setCdYear={setcdYear}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="order-payment-subcontent subcontent-right">
             <FormControl>
-              <InputLabel htmlFor="my-input">安全碼*</InputLabel>
+              <InputLabel htmlFor="my-input">持有人*</InputLabel>
               <Input
+                value={cdHolder}
+                name="cdHolder"
+                onChange={handleChange}
                 id="my-input"
-                value={safeCode}
-                onChange={changeSafeCode}
                 aria-describedby="my-helper-text"
               />
             </FormControl>
-            <p> (3碼) </p>
-          </div>
-
-          <div className="subcontent-date">
-            到期日期
-            <div className="credit-card-date">
-              <CreditCardExpiration
-                cdMonth={cdMonth}
-                cdYear={cdYear}
-                setCdMonth={setcdMonth}
-                setCdYear={setcdYear}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="order-payment-subcontent subcontent-right">
-          <FormControl>
-            <InputLabel htmlFor="my-input">持有人*</InputLabel>
-            <Input
-              value={cdHolder}
-              name="cdHolder"
-              onChange={handleChange}
-              id="my-input"
-              aria-describedby="my-helper-text"
+            <Address
+              myCity={billCity}
+              myPostCode={billPostCode}
+              myAddress={billAddress}
+              setCities={setBillCity}
+              setDistricts={setBillDistrict}
+              setPostCode={setBillPostCode}
+              setAddress={setBillAddress}
             />
-          </FormControl>
-          <Address
-            myCity={billCity}
-            myPostCode={billPostCode}
-            myAddress={billAddress}
-            setCities={setBillCity}
-            setDistricts={setBillDistrict}
-            setPostCode={setBillPostCode}
-            setAddress={setBillAddress}
-          />
-          <div
-            className="credit-card-checkedBtn d-flex align-items-center"
-            onClick={() => setSaveCreditCard(!saveCreditCard)}
-          >
-            {saveCreditCard ? (
-              <FiCheckSquare className="order-payment-square" />
-            ) : (
-              <FiSquare className="order-payment-square" />
-            )}
-            <p>使用預設已儲存的信用卡</p>
+            <div
+              className="credit-card-checkedBtn d-flex align-items-center"
+              onClick={() => setSaveCreditCard(!saveCreditCard)}
+            >
+              {saveCreditCard ? (
+                <FiCheckSquare className="order-payment-square" />
+              ) : (
+                <FiSquare className="order-payment-square" />
+              )}
+              <p>使用預設已儲存的信用卡</p>
+            </div>
+            <div
+              className="credit-card-checkedBtn d-flex align-items-center"
+              onClick={() => setAgree(!agree)}
+            >
+              {agree ? (
+                <FiCheckSquare className="order-payment-square" />
+              ) : (
+                <FiSquare className="order-payment-square" />
+              )}
+              <p>
+                我確認上述資訊完整無誤並同意上述資訊
+                <br />
+                可以被InSense作為商業用途使用
+              </p>
+            </div>
+            <Button
+              className="MuiButtonBase-root MuiButton-root MuiButton-outlined confirm-btn"
+              href="#"
+              onClick={handleInquiryOpen}
+            >
+              確認付款
+            </Button>
+            <InquiryAlert
+              openInquiry={openInquiry}
+              handleInquiryClose={handleInquiryClose}
+              inquiryTitle={inquiryTitle}
+              inquiryContext={inquiryContext}
+              leftButton={"取消"}
+              rightButton={"確認"}
+              leftButtonFunc={handleInquiryClose}
+              rightButtonFunc={confirmToPay}
+            />
           </div>
-          <div
-            className="credit-card-checkedBtn d-flex align-items-center"
-            onClick={() => setAgree(!agree)}
-          >
-            {agree ? (
-              <FiCheckSquare className="order-payment-square" />
-            ) : (
-              <FiSquare className="order-payment-square" />
-            )}
-            <p>
-              我確認上述資訊完整無誤並同意上述資訊
-              <br />
-              可以被InSense作為商業用途使用
-            </p>
-          </div>
-          <Button
-            className="MuiButtonBase-root MuiButton-root MuiButton-outlined confirm-btn"
-            href="#"
-            onClick={handleInquiryOpen}
-          >
-            確認付款
-          </Button>
-          <InquiryAlert
-            openInquiry={openInquiry}
-            handleInquiryClose={handleInquiryClose}
-            inquiryTitle={inquiryTitle}
-            inquiryContext={inquiryContext}
-            leftButton={"取消"}
-            rightButton={"確認"}
-            leftButtonFunc={handleInquiryClose}
-            rightButtonFunc={confirmToPay}
-          />
         </div>
       </div>
     </MainContainer>
