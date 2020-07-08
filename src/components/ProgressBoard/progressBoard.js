@@ -16,12 +16,8 @@ import "react-circular-progressbar/dist/styles.css";
 import "./progressBoard.scss";
 
 const ProgressBoard = (props) => {
-  const { location, history } = props;
-  const [percentage, setPercentage] = useState(66);
-  const [annualAmount, setAnnualAmount] = useState(0);
+  const { annualAmount } = props;
 
-  console.log(location);
-  console.log(history.goBack)
   return (
     <>
       <div className="progress-container d-flex flex-direction-column align-items-center">
@@ -31,35 +27,42 @@ const ProgressBoard = (props) => {
           <div className="circle">
             <AnimatedProgressProvider
               valueStart={0}
-              valueEnd={percentage}
+              valueEnd={(annualAmount * 100) / 10000}
               duration={3}
               easingFunction={easeQuadInOut}
             >
               {(value) => {
-                const roundedValue = Math.round(value);
                 return (
                   <CircularProgressbarWithChildren
                     value={value}
                     strokeWidth={3}
                     styles={buildStyles({
                       pathTransition: "none",
-                      // strokeLinecap: "butt",
                       textColor: "#555555",
                       pathColor: "#f7b66c",
                       trailColor: "#fff",
                     })}
                   >
-                    <h3>{`${roundedValue}%`}</h3>
+                    <h3>{`${Math.round(value)}%`}</h3>
+                    {value >= 100 ? (
+                      <p className="text-center">您已達標</p>
+                    ) : (
+                      <p className="text-center">一步之遙</p>
+                    )}
+                    <p className=" annual-amount d-flex align-items-end justify-content-center">
+                      本年度您已消費
+                      <span className="d-flex align-items-end justify-content-end">
+                        {" "}
+                        {Math.round((value * 10000) / 100)}{" "}
+                      </span>
+                      元
+                    </p>
                   </CircularProgressbarWithChildren>
                 );
               }}
             </AnimatedProgressProvider>
           </div>
-          <p className="text-center">一步之遙</p>
         </div>
-        <p className="text-center annual-amount">
-          本年度您以消費<span> {annualAmount} </span>元
-        </p>
       </div>
     </>
   );

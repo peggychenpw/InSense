@@ -1,0 +1,109 @@
+@import '../../styles/style.scss';
+
+
+
+.content-title-position {
+    position: relative;
+    left: 27px;
+    color: $main-black
+}
+
+
+.content-hidden {
+    max-height: 0.1px;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+    max-height: 0px;
+    margin: 0 0 0 0px;
+
+
+}
+
+// .test {
+//     max-height: 0.1px;
+//     overflow: hidden;
+//     transition: all 0.25s ease-in-out;
+// }
+
+.active1 {
+    padding: 20px 0;
+    max-height: 2000px;
+    transition: all .3s ease-in-out;
+
+}
+
+.active2 {
+
+    max-height: 1000px;
+    transition: all 2s ease-in-out;
+
+
+}
+
+.content-title-position {
+
+    position: relative;
+    left: 20px;
+    padding-right: 30px;
+
+
+    .content-title {
+        letter-spacing: 0.9px;
+        font-size: 20px;
+        width: 900px;
+
+
+    }
+
+}
+
+.content {
+    font-size: 16px;
+    width: 800px;
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+
+.content-position {
+    position: relative;
+    left: 50px;
+}
+
+/* plus & minus */
+
+
+.plus-minus-toggle {
+    cursor: pointer;
+    height: 21px;
+    position: relative;
+    width: 21px;
+    left: 28px;
+
+
+
+    &:before,
+    &:after {
+        background: #000;
+        content: "";
+        height: 3px;
+        left: -25px;
+        position: absolute;
+        top: 11px;
+        width: 17px;
+        transition: transform 500ms ease;
+    }
+
+    &:after {
+        transform-origin: center;
+    }
+
+    &.collapsed {
+        &:after {
+            transform: rotate(90deg);
+        }
+
+        &:before {
+            transform: rotate(180deg);
+        }
+    }
+}

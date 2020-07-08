@@ -22,6 +22,7 @@ import {
   selectCartTotal,
   selectUserLogin,
   selectUserInfo,
+  selectCouponCode
 } from "../../Redux/cart/cartSelectors";
 
 import Button from "@material-ui/core/Button";
@@ -32,10 +33,11 @@ const OrderPayMent = ({
   selectCartTotal,
   selectUserLogin,
   selectUserInfo,
+  selectCouponCode,
   clearCart,
 }) => {
   const UserInfo = { ...selectUserInfo };
-
+  console.log(selectCartTotal)
   const orderDelivery = history.location.state;
   const [getOrderDelivery, setGetOrderDelivery] = useState(orderDelivery);
 
@@ -59,7 +61,7 @@ const OrderPayMent = ({
   const [safeCode, setSafeCode] = useState("");
 
   //卡別
-  const [association, setassociation] = useState("VISA");
+  const [association, setassociation] = useState('')
 
   //地址
   const [billCity, setBillCity] = useState("");
@@ -72,20 +74,41 @@ const OrderPayMent = ({
   //取得信用卡資訊
   const [getCreditCardInfo, setGetCreditCardInfo] = useState({});
 
+  //格式錯誤檢查
+  const [formatError, setFormatError] = useState({});
+
+  //控制翻牌
+  const [rotateCard, setRotateCard] = useState(false)
+
   //打開詢問付款
   const [openInquiry, setOpenInquiry] = useState(false);
   const [inquiryTitle, setInquiryTitle] = useState("title");
   const [inquiryContext, setInquiryContext] = useState("context");
+
   const handleInquiryOpen = () => {
-    setInquiryTitle("確認付款");
-    setInquiryContext("按下確認按鈕即送出訂單");
-    setOpenInquiry(true);
-  };
+    if (Object.keys(formatError).length || !agree) {
+      setInquiryTitle("資料不正確");
+      setInquiryContext("確認資料欄位輸入無誤或是有無勾選");
+      setOpenInquiry(true);
+    } else {
+      setInquiryTitle("確認付款");
+      setInquiryContext("按下確認按鈕即送出訂單");
+      setOpenInquiry(true);
+    }
+  }
   const handleInquiryClose = () => {
     setOpenInquiry(false);
   };
 
   const handleChange = (event) => {
+    const errObj = {}
+    if (!event.target.value.length) {
+      errObj.cdHolder = '未填*'
+    } else {
+      delete errObj.cdHolder
+    }
+    setFormatError(errObj)
+
     switch (event.target.name) {
       case "cdHolder":
         setcdHolder(event.target.value);
@@ -97,6 +120,7 @@ const OrderPayMent = ({
   };
 
   const changeSafeCode = (e) => {
+    const errObj = {}
     //先取出數字陣列
     const inputNumList = e.target.value.match(/\d+/g);
     // console.log("inputNumList", inputNumList);
@@ -109,7 +133,14 @@ const OrderPayMent = ({
     const insertNum = !!insertRawNum.match(/\d{1,3}/g)
       ? insertRawNum.match(/\d{1,3}/g)[0]
       : "";
+    if (e.target.value.length < 3) {
+      errObj.safeCode = '請填滿3碼*'
+    } else {
+      delete errObj.safeCode
+    }
+    setFormatError(errObj)
     setSafeCode(insertNum);
+
   };
   const paymentdata = {
     userId: UserInfo.userId,
@@ -139,6 +170,7 @@ const OrderPayMent = ({
       selectCartItems: selectCartItems,
       selectCartTotal: selectCartTotal,
       orderDelivery: getOrderDelivery,
+      selectCouponCode: selectCouponCode
     });
     const { data } = res;
     return data;
@@ -161,6 +193,16 @@ const OrderPayMent = ({
       }
     })();
   }, [saveCreditCard]);
+
+  useEffect(() => {
+    const input = document.querySelector('.payment-safe-code .MuiFormControl-root .MuiInputBase-root input')
+    input.addEventListener('focus', function () {
+      setRotateCard(true)
+    })
+    input.addEventListener('blur', function () {
+      setRotateCard(false)
+    })
+  }, [])
 
   //取得預設的credit card 資料
   useEffect(() => {
@@ -196,7 +238,7 @@ const OrderPayMent = ({
             寄送資訊{" "}
           </a>{" "}
           ＞
-          <a href="#" onClick={(e) => e.preventDefault()}>
+          <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#d94f06' }}>
             付款資訊{" "}
           </a>{" "}
           ＞
@@ -205,30 +247,34 @@ const OrderPayMent = ({
           </a>
         </div>
       </div>
+      {/* 卡片 */}
       <div className="d-flex order-payment-content">
-        <div className="order-payment-subcontent subcontent-left">
-          <div className="credit-card-demo1">
+        <div className={`order-payment-subcontent subcontent-left ${rotateCard ? 'rotateActive' : ''}`}>
+          <div className='credit-card-demo1'>
             <CreditCardNumber
               cardNumberFirst={cardNumberFirst}
               cardNumberSecond={cardNumberSecond}
               cardNumberThird={cardNumberThird}
               cardNumberForth={cardNumberForth}
-              setCardNumberFirst={setCardNumberFirst}
+              setCardNumberFirst={(e) => setCardNumberFirst(e.target.value)}
               setCardNumberSecond={setCardNumberSecond}
               setCardNumberThird={setCardNumberThird}
               setCardNumbeForth={setCardNumbeForth}
             />
+            <CreditCardExpiration
+              cdMonth={cdMonth}
+              cdYear={cdYear}
+              setCdMonth={setcdMonth}
+              setCdYear={setcdYear}
+              formatError={formatError}
+              setFormatError={setFormatError}
+            />
           </div>
-          <div className="credit-card-demo2">
-            <div className="black-strip"></div>
+          <div className='credit-card-demo2'>
+            <div className='black-strip'></div>
             <FormControl>
               <InputLabel htmlFor="my-input">安全碼*</InputLabel>
-              <Input
-                id="my-input"
-                value={safeCode}
-                onChange={changeSafeCode}
-                aria-describedby="my-helper-text"
-              />
+              <Input id="my-input" value={safeCode} onChange={changeSafeCode} aria-describedby="my-helper-text" />
             </FormControl>
             <div className="credit-card-demo2">
               <div className="black-strip"></div>
@@ -243,23 +289,48 @@ const OrderPayMent = ({
               </FormControl>
             </div>
           </div>
-          <div className="order-payment-subcontent subcontent-center">
-            {/* 卡別 */}
+
+        </div>
+        <div className="order-payment-subcontent subcontent-center">
+          {/* 卡別 */}
+          <div className='position-relative'>
             <CreditCardAssociation
               association={association}
               setAssociation={setassociation}
+              formatError={formatError}
+              setFormatError={setFormatError}
             />
-
+            <div
+              className={
+                !!formatError.association ? "error-message" : "display-none"
+              }
+            >
+              <span>{formatError.association}</span>
+            </div>
+          </div>
+          <div className='position-relative'>
             <CreditCardNumber
               cardNumberFirst={cardNumberFirst}
               cardNumberSecond={cardNumberSecond}
               cardNumberThird={cardNumberThird}
               cardNumberForth={cardNumberForth}
+              formatError={formatError}
               setCardNumberFirst={setCardNumberFirst}
               setCardNumberSecond={setCardNumberSecond}
               setCardNumberThird={setCardNumberThird}
               setCardNumbeForth={setCardNumbeForth}
+              setFormatError={setFormatError}
+
             />
+            <div
+              className={
+                !!formatError.cardNumber ? "error-message" : "display-none"
+              }
+            >
+              <span>{formatError.cardNumber}</span>
+            </div>
+          </div>
+          <div className='position-relative'>
             <div className="d-flex align-items-center payment-safe-code">
               <FormControl>
                 <InputLabel htmlFor="my-input">安全碼*</InputLabel>
@@ -272,20 +343,37 @@ const OrderPayMent = ({
               </FormControl>
               <p> (3碼) </p>
             </div>
-
-            <div className="subcontent-date">
-              到期日期
-              <div className="credit-card-date">
-                <CreditCardExpiration
-                  cdMonth={cdMonth}
-                  cdYear={cdYear}
-                  setCdMonth={setcdMonth}
-                  setCdYear={setcdYear}
-                />
-              </div>
+            <div
+              className={
+                !!formatError.safeCode ? "error-message" : "display-none"
+              }
+            >
+              <span>{formatError.safeCode}</span>
             </div>
           </div>
-          <div className="order-payment-subcontent subcontent-right">
+          <div className="subcontent-date position-relative">
+            到期日期
+            <div className="credit-card-date">
+              <CreditCardExpiration
+                cdMonth={cdMonth}
+                cdYear={cdYear}
+                setCdMonth={setcdMonth}
+                setCdYear={setcdYear}
+                formatError={formatError}
+                setFormatError={setFormatError}
+              />
+            </div>
+            <div
+              className={
+                !!formatError.cdDate ? "error-message" : "display-none"
+              }
+            >
+              <span>{formatError.cdDate}</span>
+            </div>
+          </div>
+        </div>
+        <div className="order-payment-subcontent subcontent-right">
+          <div className='position-relative'>
             <FormControl>
               <InputLabel htmlFor="my-input">持有人*</InputLabel>
               <Input
@@ -296,59 +384,66 @@ const OrderPayMent = ({
                 aria-describedby="my-helper-text"
               />
             </FormControl>
-            <Address
-              myCity={billCity}
-              myPostCode={billPostCode}
-              myAddress={billAddress}
-              setCities={setBillCity}
-              setDistricts={setBillDistrict}
-              setPostCode={setBillPostCode}
-              setAddress={setBillAddress}
-            />
             <div
-              className="credit-card-checkedBtn d-flex align-items-center"
-              onClick={() => setSaveCreditCard(!saveCreditCard)}
+              className={
+                !!formatError.cdHolder ? "error-message" : "display-none"
+              }
             >
-              {saveCreditCard ? (
-                <FiCheckSquare className="order-payment-square" />
-              ) : (
-                <FiSquare className="order-payment-square" />
-              )}
-              <p>使用預設已儲存的信用卡</p>
+              <span>{formatError.cdHolder}</span>
             </div>
-            <div
-              className="credit-card-checkedBtn d-flex align-items-center"
-              onClick={() => setAgree(!agree)}
-            >
-              {agree ? (
-                <FiCheckSquare className="order-payment-square" />
-              ) : (
-                <FiSquare className="order-payment-square" />
-              )}
-              <p>
-                我確認上述資訊完整無誤並同意上述資訊
-                <br />
-                可以被InSense作為商業用途使用
-              </p>
-            </div>
-            <Button
-              className="MuiButtonBase-root MuiButton-root MuiButton-outlined confirm-btn"
-              href="#"
-              onClick={handleInquiryOpen}
-            >
-              確認付款
-            </Button>
-            <InquiryAlert
-              openInquiry={openInquiry}
-              handleInquiryClose={handleInquiryClose}
-              inquiryTitle={inquiryTitle}
-              inquiryContext={inquiryContext}
-              leftButton={"取消"}
-              rightButton={"確認"}
-              leftButtonFunc={handleInquiryClose}
-              rightButtonFunc={confirmToPay}
-            />
           </div>
+          <Address
+            myCity={billCity}
+            myPostCode={billPostCode}
+            myAddress={billAddress}
+            setCities={setBillCity}
+            setDistricts={setBillDistrict}
+            setPostCode={setBillPostCode}
+            setAddress={setBillAddress}
+          />
+          <div
+            className="credit-card-checkedBtn d-flex align-items-center"
+            onClick={() => setSaveCreditCard(!saveCreditCard)}
+          >
+            {saveCreditCard ? (
+              <FiCheckSquare className="order-payment-square" />
+            ) : (
+                <FiSquare className="order-payment-square" />
+              )}
+            <p>使用預設已儲存的信用卡</p>
+          </div>
+          <div
+            className="credit-card-checkedBtn d-flex align-items-center"
+            onClick={() => setAgree(!agree)}
+          >
+            {agree ? (
+              <FiCheckSquare className="order-payment-square" />
+            ) : (
+                <FiSquare className="order-payment-square" />
+              )}
+            <p>
+              我確認上述資訊完整無誤並同意上述資訊
+              <br />
+              可以被InSense作為商業用途使用
+            </p>
+          </div>
+          <Button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined confirm-btn"
+            href="#"
+            onClick={handleInquiryOpen}
+          >
+            確認付款
+          </Button>
+          <InquiryAlert
+            openInquiry={openInquiry}
+            handleInquiryClose={handleInquiryClose}
+            inquiryTitle={inquiryTitle}
+            inquiryContext={inquiryContext}
+            leftButton={Object.keys(formatError).length || !agree ? '' : "取消"}
+            rightButton={Object.keys(formatError).length || !agree ? '取消' : "確認"}
+            leftButtonFunc={handleInquiryClose}
+            rightButtonFunc={Object.keys(formatError).length || !agree ? handleInquiryClose : confirmToPay}
+          />
         </div>
       </div>
     </MainContainer>
@@ -359,6 +454,7 @@ const mapStateToProps = createStructuredSelector({
   selectCartTotal: selectCartTotal,
   selectUserLogin: selectUserLogin,
   selectUserInfo: selectUserInfo,
+  selectCouponCode: selectCouponCode
 });
 
 const mapDispatchToProps = (dispatch) => ({

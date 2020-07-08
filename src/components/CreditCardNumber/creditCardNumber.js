@@ -20,6 +20,8 @@ export default function CreditCardNumber(props) {
     setCardNumberThird,
     cardNumberForth,
     setCardNumbeForth,
+    formatError = {},
+    setFormatError = () => { }
   } = props;
 
   // const [cardNumberFirst, setCardNumberFirst] = useState("");
@@ -50,7 +52,14 @@ export default function CreditCardNumber(props) {
     const insertNum = !!insertRawNum.match(/\d{1,4}/g)
       ? insertRawNum.match(/\d{1,4}/g)[0]
       : "";
-    console.log("insertNum", insertNum);
+
+    const errObj = { ...formatError }
+    if (event.target.value.length < 4) {
+      errObj.cardNumber = '請填滿4碼*'
+    } else {
+      delete errObj.cardNumber
+    }
+    setFormatError(errObj)
 
     switch (event.target.name) {
       case "card-number-first":
@@ -77,6 +86,7 @@ export default function CreditCardNumber(props) {
       default:
         break;
     }
+
   };
 
   //跳到前一格
@@ -145,12 +155,12 @@ export default function CreditCardNumber(props) {
           <InputLabel
             className={`${
               labelNumFocused ||
-              cardNumberSecond ||
-              cardNumberThird ||
-              cardNumberForth
+                cardNumberSecond ||
+                cardNumberThird ||
+                cardNumberForth
                 ? "MuiInputLabel-shrink Mui-focused"
                 : ""
-            } input-num-label`}
+              } input-num-label`}
             htmlFor="card-number-first"
           >
             卡號

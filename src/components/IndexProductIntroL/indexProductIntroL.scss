@@ -63,11 +63,23 @@
                 display: block;
                 max-width: 200px;
                 min-height: 40px;
-                background: $main-orange;
-                color: $main-black;
+                border: 2px solid $main-orange;
+                background: rgba(247, 182, 108, 0.1);
+                color: $main-orange;
+                letter-spacing: 0.9px;
                 line-height: 50px;
                 font-size: 20px;
                 text-decoration: none;
+
+                &:hover {
+                    // background: radial-gradient(ellipse at top, #fdb25c, transparent),
+                    //     radial-gradient(ellipse at bottom, #ff803c, #ffc480);
+                    // color: $sub-white;
+                    transition: 0.4s;
+                    border: 2px solid $main-orange;
+                    background-color: $main-orange;
+                    color: $main-white;
+                }
             }
         }
     }

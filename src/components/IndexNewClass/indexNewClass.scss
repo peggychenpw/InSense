@@ -21,15 +21,19 @@
         .button-link {
             text-decoration: none;
             color: $main-black;
-
-            display: block;
-            max-width: 240px;
-            min-height: 60px;
             border: 1px solid $main-scarlet;
-            line-height: 60px;
-            font-size: 20px;
             color: $main-scarlet;
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
             margin-top: 60px;
+            cursor: pointer;
+        }
+        &:hover .button-link {
+            background-color: $main-scarlet;
+            color: $sub-white;
         }
     }
 }

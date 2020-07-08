@@ -7,6 +7,7 @@ const CartActionTypes = {
   CLEAR_ITEM_FROM_CART: "CLEAR_ITEM_FROM_CART",
   ADD_QUANTITY: "ADD_QUANTITY",
   CLEAR_CART: "CLEAR_CART",
+  ADD_COUPONCODE: "ADD_COUPONCODE"
 };
 
 export default CartActionTypes;

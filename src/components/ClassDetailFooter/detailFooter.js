@@ -48,6 +48,7 @@ const DetailFooter = ({ classTime, match, history, classPrice, userToggleFunc })
         res.success ? history.push('/account/classpage') : userToggleFunc()
       ,
       customClass: {
+        container: 'container-class',
         popup: 'popup-class',
         title: 'title-class',
         content: res.success ? 'content-class' : 'content-sub-class',

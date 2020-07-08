@@ -12,6 +12,7 @@ const ErrorPage = ({ history }) => {
           type="video/mp4"
         />
       </video>
+      <div className="errorText">404 Not Found</div>
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-outlined success-alert go-buy-btn"
         tabindex="0"

@@ -1,4 +1,5 @@
 @import "../../styles/style.scss";
+$sub-color: grey;
 
 .checkout-page {
   width: 65%;
@@ -50,6 +51,33 @@
     margin-top: 30px;
     margin-right: auto;
     font-size: 14px;
+
+    .text-coupon-code {
+      color: $main-sky-blue;
+      font-size: 16px;
+      margin: 25px;
+    }
+
+    .code-input {
+      background: none;
+      background-color: white;
+      color: $sub-color;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 10px;
+      color: $main-black;
+      display: block;
+      width: 150px;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid $main-black;
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    :focus {
+      outline: none;
+    }
   }
 
   .sum {

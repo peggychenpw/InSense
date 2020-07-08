@@ -28,7 +28,7 @@ const OrderHistory = (props) => {
     })()
   }, [user.logInStatus, cancelOrder])
 
-
+  console.log(ordersHistory)
   return (
     <MainContainer>
       <div className='d-flex order-history-container'>

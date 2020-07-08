@@ -4,7 +4,7 @@ import MainContainer from '../../components/mainContainer'
 import OrderProductCard from '../../components/OrderProductCard/orderProductCard'
 import { withRouter } from 'react-router-dom'
 
-const OrderDeatil = ({ match }) => {
+const OrderDeatil = ({ match, history }) => {
   const [orderDetail, setOrderDetail] = useState({})
 
   const fetchOrderDetailData = async () => {
@@ -21,10 +21,26 @@ const OrderDeatil = ({ match }) => {
     })()
   }, [])
 
-  const { orderId, deliveryData, orderItems, creditCardData, totalPrice } = { ...orderDetail }
+  const { orderId, deliveryData, orderItems, creditCardData, totalPrice, couponDiscount } = { ...orderDetail }
   console.log(orderDetail)
   return (
     <MainContainer>
+      <div className="text-center position-relative order-payment-head">
+        <div className="position-absolute order-payment-title">訂單明細</div>
+        <div className="order-payment-step">
+          <a href="#" onClick={(e) => e.preventDefault()}>
+            寄送資訊{" "}
+          </a>{" "}
+          ＞
+          <a href="#" onClick={(e) => e.preventDefault()} >
+            付款資訊{" "}
+          </a>{" "}
+          ＞
+          <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#d94f06' }}>
+            訂單明細
+          </a>
+        </div>
+      </div>
       <h2 className='order-title'>訂單編號：{orderId && orderId}</h2>
       <div className='d-flex order-detail-container'>
         <div className='order-detail-subContainer'>
@@ -59,21 +75,21 @@ const OrderDeatil = ({ match }) => {
           <div className='order-price-cotainer'>
             <div className='d-flex justify-content-between order-price-content'>
               <p>商品小計</p>
-              <p>$ {totalPrice && totalPrice}</p>
+              <p>$ {(totalPrice && couponDiscount) && (totalPrice + couponDiscount)}</p>
             </div>
             <div className='d-flex justify-content-between order-price-content'>
-              <p>運費</p>
-              <p>$ -80</p>
+              <p>優惠券</p>
+              <p>$ -{couponDiscount && couponDiscount}</p>
             </div>
           </div>
           <div className='order-totalPrice-container'>
             <div className='d-flex justify-content-between order-price-content'>
               <p>總金額</p>
-              <p>$ {totalPrice && (totalPrice - 80)}</p>
+              <p>$ {totalPrice && totalPrice}</p>
             </div>
             <div className='d-flex justify-content-between order-price-content'>
               <p>刷卡金額</p>
-              <p>$ {totalPrice && (totalPrice - 80)}</p>
+              <p>$ {totalPrice && totalPrice}</p>
             </div>
           </div>
         </div>
@@ -87,7 +103,7 @@ const OrderDeatil = ({ match }) => {
       </div>
       {orderItems && orderItems.map(item => <OrderProductCard key={item.itemId} itemName={item.itemName} itemId={item.itemId} itemSize={item.itemSize} quantity={item.quantity} itemPrice={item.itemPrice} itemImg={item.itemimg} />)}
 
-      <a className='go-back-btn' onClick={(e) => (e.preventDefault())} href='' role='button'>回到訂單紀錄</a>
+      <a className='go-back-btn' onClick={(e) => (e.preventDefault(), history.push(`/account/orderhistory`))} href='' role='button'>回到訂單紀錄</a>
     </MainContainer>
   )
 }

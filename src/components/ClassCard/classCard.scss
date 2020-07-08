@@ -23,57 +23,60 @@
             color: $main-sky-blue;
             padding: 16px;
             margin-right: 8px;
+            opacity: 0;
         }
-        .card-name,.countPeople {
+        .card-name,
+        .countPeople {
             margin: 0;
             margin-bottom: 16px;
             color: $main-black;
         }
-        .countPeople{
-          padding-top:3px;
-          font-size: 12px;
+        .countPeople {
+            padding-top: 3px;
+            font-size: 12px;
         }
     }
-    .class-card-tile{
-      color:$main-black;
+    .class-card-tile {
+        color: $main-black;
     }
     .card-btn {
+        letter-spacing: 1px;
         display: block;
         color: $main-scarlet;
         text-decoration: none;
         border: 1px solid $main-scarlet;
         padding: 10px 0;
-        margin:8px 0;
+        margin: 8px 0;
         cursor: pointer;
-        &:hover{
-          color:$sub-white;
-          border: 1px solid $main-orange;
-          background: $main-orange;
+        &:hover {
+            color: $sub-white;
+            border: 1px solid $main-scarlet;
+            background: $main-scarlet;
         }
-       &.cantClick{
-        pointer-events: none;
-        background: $main-orange;
-        color:$sub-white;
-        border:transparent;
-       }
+        &.cantClick {
+            pointer-events: none;
+            background: $main-orange;
+            color: $sub-white;
+            border: transparent;
+        }
     }
-    .card-block{
+    .card-block {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
-        top:0;
+        top: 0;
         z-index: 20;
         background: rgb(250, 250, 250);
-        opacity: .7;
-        p{
-          margin: 0;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%,-50%);
-          color:$main-black;
-          font-size: 32px;
+        opacity: 0.7;
+        p {
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: $main-black;
+            font-size: 32px;
         }
     }
 }

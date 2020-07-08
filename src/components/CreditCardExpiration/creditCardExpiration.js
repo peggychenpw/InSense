@@ -10,7 +10,7 @@ import "./creditCardExpiration.scss";
 export default function CreditCardExpiration(props) {
   // const [open, setOpen] = React.useState(false);
   // const [cardHolder, setCardHolder] = React.useState();
-  const { open, cdMonth, cdYear, setCdMonth, setCdYear } = props;
+  const { open, cdMonth, cdYear, setCdMonth, setCdYear, formatError = {}, setFormatError = () => { } } = props;
 
   //Ref
   const inputMonth = useRef(null);
@@ -32,8 +32,15 @@ export default function CreditCardExpiration(props) {
       : "";
     // console.log("wholeNum", wholeNum);
 
-    let insertNum = wholeNum;
+    const errObj = { ...formatError }
+    if (!event.target.value.length) {
+      errObj.cdDate = '未填*'
+    } else {
+      delete errObj.cdDate
+    }
+    setFormatError(errObj)
 
+    let insertNum = wholeNum;
     switch (event.target.name) {
       case "input-month":
         //判斷月份

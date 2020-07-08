@@ -17,6 +17,11 @@ export const removeItem = (item) => ({
   type: CartActionTypes.REMOVE_ITEM,
   payload: item,
 });
+//加入couponCode 至 redux
+export const addCouponCode = (couponCode) => ({
+  type: CartActionTypes.ADD_COUPONCODE,
+  payload: couponCode
+})
 
 //itemDetails頁面增加指定數量進購物車按鈕
 export const addQuantity = (item, quantity) => ({

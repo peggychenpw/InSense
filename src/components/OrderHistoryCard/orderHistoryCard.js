@@ -54,7 +54,7 @@ const OrderHistoryCard = (props) => {
       </div>
       <div className='order-history-deliveryinfo'>
         <p className='delivery-id'>配送編號：{deliveryId}</p>
-        <p>配送方式：7-11店到店</p>
+        <p>配送方式：宅配</p>
       </div>
       <figure className='order-history-itemimg d-flex align-items-center position-relative'>
         <img src={itemImg} />

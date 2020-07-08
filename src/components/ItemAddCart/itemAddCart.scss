@@ -39,18 +39,22 @@
             width: 200px;
             height: 50px;
             font-size: 18px;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 1px;
-            border: transparent;
-            background-color: $main-orange;
-            color: $main-black;
+            border: 2px solid $main-orange;
+            background-color: rgba(247, 182, 108, 0.1);
+            color: $main-orange;
             outline: none;
             cursor: pointer;
         }
         &:hover .btn-cart {
-            background: radial-gradient(ellipse at top, #f7b66c, transparent),
-                radial-gradient(ellipse at bottom, #e98f5f, #ffd19c);
-            transition: 0.5s;
+            // background: radial-gradient(ellipse at top, #fdb25c, transparent),
+            //     radial-gradient(ellipse at bottom, #ff803c, #ffc480);
+            // color: $sub-white;
+            transition: 0.4s;
+            border: 2px solid $main-orange;
+            background-color: $main-orange;
+            color: $main-white;
         }
     }
 }

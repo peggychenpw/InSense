@@ -30,22 +30,25 @@
         margin-top: 12px;
         color: $main-black;
       }
-    }
-    p {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: $main-black;
-      font-weight: 300;
-    }
-  }
-  .annual-amount {
-    margin: 32px 0 48px;
-    font-weight: 300;
-    color: $main-black;
-    span {
-      font-size: 32px;
+      p {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $main-black;
+        font-weight: 300;
+      }
+      .annual-amount {
+        width: 300px;
+        font-weight: 300;
+        color: $main-black;
+        margin-top: 132px;
+        span {
+          min-width: 72px;
+          font-size: 32px;
+          line-height: 28px;
+        }
+      }
     }
   }
 }

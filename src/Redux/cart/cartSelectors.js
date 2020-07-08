@@ -25,6 +25,11 @@ export const selectCartHidden = createSelector(
   (cart) => cart.hidden
 );
 
+export const selectCouponCode = createSelector(
+  [selectCart],
+  (cart) => cart.couponCode
+)
+
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   (cartItems) =>

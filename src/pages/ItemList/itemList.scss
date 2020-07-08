@@ -10,9 +10,10 @@
         font-size: 14px;
         letter-spacing: 0.8px;
         cursor: pointer;
-    }
-    &:hover .filter-btn {
-        text-decoration: underline;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 .item-list-container {
@@ -21,6 +22,11 @@
 }
 
 .filter-bar-close {
+    transform: translateX(-100%);
+    transition: ease-in-out 0.5s;
+}
+
+.order-bar-close {
     transform: translateX(-100%);
     transition: ease-in-out 0.5s;
 }

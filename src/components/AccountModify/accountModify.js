@@ -101,7 +101,7 @@ const AccountModify = (props) => {
   //文字欄
   const handleChange = (event) => {
     // console.log(event.target.name);
-    const errorObj = {...formatError};
+    const errorObj = { ...formatError };
     switch (event.target.name) {
       case "firstName":
         setFirstName(event.target.value);
@@ -303,6 +303,7 @@ const AccountModify = (props) => {
     }
   }, [user.logInStatus]);
 
+
   return (
     <>
       <div className="account-modify-container">
@@ -328,8 +329,8 @@ const AccountModify = (props) => {
                   {gender === "woman" ? (
                     <FiCheckCircle className="modify-select-circle" />
                   ) : (
-                    <FiCircle className="modify-select-circle" />
-                  )}
+                      <FiCircle className="modify-select-circle" />
+                    )}
                   <p>女性</p>
                 </label>
                 <input
@@ -347,8 +348,8 @@ const AccountModify = (props) => {
                   {gender === "man" ? (
                     <FiCheckCircle className="modify-select-circle" />
                   ) : (
-                    <FiCircle className="modify-select-circle" />
-                  )}
+                      <FiCircle className="modify-select-circle" />
+                    )}
                   <p>男性</p>
                 </label>
               </div>

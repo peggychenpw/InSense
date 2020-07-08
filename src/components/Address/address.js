@@ -74,7 +74,7 @@ const Address = (props) => {
   //取得縣市資料
   const getCities = async () => {
     const response = await fetch(
-      "https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/CityCountyData.json"
+      "http://localhost:3000/data/address.json"
     );
 
     // console.log(response)

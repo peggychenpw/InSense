@@ -1,23 +1,26 @@
 @import "../../styles/style.scss";
 
 .order-payment-head {
-  height: 160px;
-  .order-payment-title {
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: $main-blue;
-  }
-  .order-payment-step {
-    line-height: 160px;
-    font-size: 14px;
-    a {
-      text-decoration: none;
-      color: $main-black;
+    height: 160px;
+    .order-payment-title {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: $main-blue;
+    }
+    .order-payment-step {
+        line-height: 160px;
+        font-size: 14px;
+        a {
+            text-decoration: none;
+            color: $main-black;
+            cursor: auto;
+        }
+
     }
   }
-}
+
 .order-payment-content {
   min-height: 420px;
   margin-bottom: 48px;
@@ -167,68 +170,236 @@
           margin: 0;
           margin-top: 8px;
         }
-      }
-      .subcontent-payment-title {
-        margin-bottom: 16px;
-        label {
-          font-size: 14px;
-          cursor: pointer;
-        }
-        .order-payment-circle {
-          padding-right: 4px;
-        }
-      }
-      .MuiFormControl-root {
-        flex: 1 0 0;
-      }
-      .subcontent-date {
-        margin-top: 32px;
-        .MuiFormControl-root {
-          margin-top: 8px;
-          margin-bottom: 0;
+        .confirm-btn{
+          display: block;
+          padding:8px 0;
           text-align: center;
-          .MuiInput-input {
-            margin: 0 auto;
+          text-decoration: none;
+          width: 90%;
+          font-size: 20px;
+          color:$main-scarlet;
+          border: 1px solid $main-scarlet;
+          border-radius: 0;
+          font-weight: 300;
+          &:hover{
+            background: $main-scarlet;
+            color :$sub-white;
+            border: 1px solid transparent;
           }
         }
-      }
-      .credit-card-number {
-        margin: 20px 0 20px;
-        .MuiFormControl-root {
-          margin-bottom: 0;
-        }
-      }
-    }
-    &.subcontent-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 0 32px;
-      margin-bottom: 32px;
-      margin-top: 10px;
-      padding-right: 0;
-      .address-container {
-        margin-top: 28px;
-        margin-bottom: 32px;
-        .group {
-          margin: 0;
-          margin-top: 30px;
-          input {
-            margin: 0;
+        &.subcontent-left {
+          margin-top: 32px;
+          margin-right: 18px;
+          padding:0;
+          position: relative;
+          transform-style: preserve-3d;
+          transition: all .5s;
+          &.rotateActive{
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
           }
+            .credit-card-demo1 {
+                position: absolute;
+                width: 342px;
+                height: 200px;
+                background-image: linear-gradient(
+                    0.35turn,
+                    #202020,
+                    #5a5a5a,
+                    #202020
+                );
+                border-radius: 10px;
+                backface-visibility: hidden;
+                .credit-card-number {
+                    position: absolute;
+                    bottom: 30%;
+                    left: 50%;
+                    backface-visibility: hidden;
+                    transform: translateX(-50%);
+                    .input-dash {
+                        opacity: 0;
+                    }
+                    .MuiInputLabel-root {
+                        display: none;
+                    }
+                    .MuiInput-underline {
+                        &:before {
+                            border-bottom: 0;
+                        }
+                    }
+                    .MuiInput-root {
+                        input {
+                            color: gold;
+                            font-size: 22px;
+                            letter-spacing: 2.5px;
+                            font-family: "Teko", sans-serif;
+                        }
+                    }
+                }
+                .credit-card-expiration{
+                  position: absolute;
+                  right:7%;
+                  bottom: 10%;
+                  
+                  .MuiInputLabel-root {
+                    display: none;
+                }
+                  .MuiInput-underline {
+                    &:before {
+                        border-bottom: 0;
+                    }
+                    input{
+                      color:gold;
+                    }
+                }
+                  p{
+                    display: none;
+                  }
+                }
+            }
+            .credit-card-demo2 {
+                position: absolute;
+                width: 342px;
+                height: 200px;
+                background-image: linear-gradient(
+                    0.35turn,
+                    #202020,
+                    #5a5a5a,
+                    #202020
+                );
+                border-radius: 10px;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                .MuiFormControl-root {
+                    position: absolute;
+                    width: 90%;
+                    height: 30px;
+                    background: $sub-white;
+                    top: 40%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: 10px;
+                    .MuiInputLabel-root {
+                        display: none;
+                    }
+                    .MuiInput-underline {
+                        &:before {
+                            border-bottom: 0;
+                        }
+                    }
+                    .MuiInput-root {
+                        margin-top: 0;
+                        input {
+                            text-align: right;
+                            padding-right: 14px;
+                            caret-color: transparent;
+                            outline: transparent;
+                        }
+                    }
+                }
+                .black-strip {
+                    position: absolute;
+                    top: 20px;
+                    width: 100%;
+                    height: 40px;
+                    background: black;
+                }
+            }
         }
-      }
-      .credit-card-checkedBtn {
-        width: 100%;
-        margin: 16px 0;
-        cursor: pointer;
-        .order-payment-square {
-          padding-right: 8px;
-          width: 24px;
+
+        &.subcontent-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 32px 32px;
+            .error-message{
+              position: absolute;
+              color: $main-orange;
+              font-size: 12px;
+            }
+              .credit-card-number {
+                margin: 10px 0 0;
+                .MuiFormControl-root {
+                    margin-bottom: 0;
+                }
+              }
+            .credit-card-association {
+                .MuiFormControl-root {
+                    margin: 0;
+                    margin-top: 8px;
+                }
+            }
+            .subcontent-payment-title {
+                margin-bottom: 16px;
+                label {
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+                .order-payment-circle {
+                    padding-right: 4px;
+                }
+            }
+            .MuiFormControl-root {
+                flex: 1 0 0;
+            }
+            .payment-safe-code{
+              p{
+                margin-bottom: 0;
+                color:#555555b6;
+              }
+            }
+            .subcontent-date {
+                margin-top: 20px;
+                .MuiFormControl-root {
+                    margin-top: 8px;
+                    margin-bottom: 0;
+                    text-align: center;
+                    .MuiInput-input {
+                        margin: 0 auto;
+                    }
+                }
+            }
         }
-        p {
-          margin: 0;
-          letter-spacing: 0.5px;
+        &.subcontent-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 32px;
+            margin-bottom: 32px;
+            margin-top: 10px;
+            padding-right: 0;
+            .address-container {
+                margin-top: 28px;
+                margin-bottom: 32px;
+                .group {
+                    margin: 0;
+                    margin-top: 30px;
+                    input {
+                        margin: 0;
+                    }
+                }
+            }
+            .error-message{
+              position: absolute;
+              color: $main-orange;
+              font-size: 12px;
+            }
+            .credit-card-checkedBtn {
+                width: 100%;
+                margin: 16px 0;
+                cursor: pointer;
+                .order-payment-square {
+                    padding-right: 8px;
+                    width: 24px;
+                }
+                p {
+                    margin: 0;
+                    letter-spacing: 0.5px;
+                }
+            }
+            .confirm-btn {
+                margin-top: 24px;
+            }
         }
       }
       .confirm-btn {

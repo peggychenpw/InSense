@@ -1,95 +1,98 @@
-@import '../../styles/style.scss';
+@import "../../styles/style.scss";
 
-.reservation-date{
-  font-size: 22px;
-  color:$main-scarlet;
+.reservation-date {
+    letter-spacing: 1px;
+    font-size: 22px;
+    color: $main-scarlet;
 }
-.reservation-wrapper{
-  width: 100%;
-  padding:24px 0;
-  select{
-    flex-grow: 1;
-    border:0;
-    border-bottom: 1px solid $main-black;
-    background-color:transparent;
-    color:$main-black;
-    &:first-child{
-      margin-right: 16px;
+.reservation-wrapper {
+    width: 100%;
+    padding: 24px 0;
+    select {
+        outline: none;
+        flex-grow: 1;
+        border: 0;
+        border-bottom: 1px solid $main-black;
+        background-color: transparent;
+        color: $main-black;
+        &:first-child {
+            margin-right: 16px;
+        }
     }
-  }
 }
-.reservation-btn{
-  display: block;
-  max-width: 180px;
-  height: 50px;
-  text-decoration: none;
-  line-height: 50px;
-  color:$main-black;
-  border:2px solid $main-orange;
-  font-size: 18px;
-  margin: 40px 0 ;
-  cursor: pointer;
-  &:hover{
-    border:2px solid transparent;
-    background:$main-orange;
-    color:$main-white;
-  }
-}
-.popup-class{
-  border-radius: 0 !important;
-}
-.title-class{
-  font-size: 20px !important ;
-  font-weight: 500 !important;
-}
-.content-class{
-  display: flex !important;
-  justify-content: center !important;
-  width: 70% !important; 
-  text-align: left !important;
-  p{
-    padding-left: 48px;
-    margin-left: 36px;
-    line-height: 48px;
-  }
-}
-.confirm-button-class{
-  width: 45% !important;
-  background: rgba(99, 129, 168,.9) !important;
-  border-radius: 0 !important;
-  padding:18px 0 !important;
-  &:hover{
-    background: $main-blue!important;
-  }
-}
-.close-button-class{
-  outline: none;
-  margin: 8px 12px !important;
-  font-size: 2rem !important;
-  &:hover{
-    color: $main-black !important;
-  }
-}
-
-@media (max-width:768px){
-  .reservation-date{
-    text-align: center;
-  }
-
-  .reservation-wrapper{
+.reservation-btn {
+    letter-spacing: 1px;
     display: block;
-    text-align: center;
-    padding:12px 0;
-    select{
-      width: 90%;
-      padding: 16px 0;
-      &:first-child{
-        margin-right: 0;
-      }
+    max-width: 180px;
+    height: 50px;
+    text-decoration: none;
+    line-height: 50px;
+    color: $main-orange;
+    border: 2px solid $main-orange;
+    font-size: 18px;
+    margin: 40px 0;
+    cursor: pointer;
+    &:hover {
+        border: 2px solid transparent;
+        background: $main-orange;
+        color: $main-white;
     }
-  }
+}
+.popup-class {
+    border-radius: 0 !important;
+}
+.title-class {
+    font-size: 20px !important ;
+    font-weight: 500 !important;
+}
+.content-class {
+    display: flex !important;
+    justify-content: center !important;
+    width: 70% !important;
+    text-align: left !important;
+    p {
+        padding-left: 48px;
+        margin-left: 36px;
+        line-height: 48px;
+    }
+}
+.confirm-button-class {
+    width: 45% !important;
+    background: rgba(99, 129, 168, 0.9) !important;
+    border-radius: 0 !important;
+    padding: 18px 0 !important;
+    &:hover {
+        background: $main-blue !important;
+    }
+}
+.close-button-class {
+    outline: none;
+    margin: 8px 12px !important;
+    font-size: 2rem !important;
+    &:hover {
+        color: $main-black !important;
+    }
+}
 
-  .reservation-btn{
-    margin: 40px auto;
-  }
+@media (max-width: 768px) {
+    .reservation-date {
+        text-align: center;
+    }
+
+    .reservation-wrapper {
+        display: block;
+        text-align: center;
+        padding: 12px 0;
+        select {
+            width: 90%;
+            padding: 16px 0;
+            &:first-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .reservation-btn {
+        margin: 40px auto;
+    }
 }

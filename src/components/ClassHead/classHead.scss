@@ -1,41 +1,48 @@
 @import '../../styles/style.scss';
 
 
-.class-head{
+.class-head {
   width: 100%;
   margin-bottom: 32px;
-  .headLeft{
+
+  .headLeft {
     width: 100%;
     height: 400px;
-    img{
+
+    img {
       width: 100%;
       height: 100%;
     }
   }
-  .headRight{
+
+  .headRight {
     padding-top: 16px;
     padding-left: 24px;
-    .headTitle{
+    margin: 0 0 0 13px;
+
+    .headTitle {
       margin-bottom: 0;
       font-size: 28px;
-      color:$main-blue;
+      color: $main-blue;
     }
-    .headContent{
-      color:$main-blue;
+
+    .headContent {
+      color: $main-blue;
       line-height: 16px;
       letter-spacing: .8px;
     }
   }
 }
 
-@media (max-width:768px){
-  .class-head{
-    .headLeft{
+@media (max-width:768px) {
+  .class-head {
+    .headLeft {
       width: 100%;
       height: auto;
     }
-    .headRight{
-      padding-bottom:0;
+
+    .headRight {
+      padding-bottom: 0;
     }
   }
 }

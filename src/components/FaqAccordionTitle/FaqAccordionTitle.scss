@@ -1,0 +1,58 @@
+@import '../../styles/style.scss';
+
+
+
+.accordion-header {
+    cursor: pointer;
+    border: 1px solid #555555;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-size: 20px;
+    font-weight: 400;
+    width: 960px;
+    margin: 20px 0 0 0;
+
+    background: white;
+    outline: none;
+    height: 56px;
+    padding: 0px 0 20px 40px;
+    text-align: left;
+    position: relative;
+    color: $main-black;
+
+    .arrow-icon-position {
+        position: absolute;
+        left: 95.5%;
+        // top: 2px;
+
+
+    }
+
+
+}
+
+
+// @media (max-width: 760px) {
+//     .arrow-icon-position {
+//         position: absolute;
+//         left: 2%;
+//     }
+
+//     .accordion-header{
+
+//         width:100%;
+//     }
+// }
+
+.arrow-icon {
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in-out;
+    color: $main-black;
+
+}
+
+.arrow-icon-active {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+}

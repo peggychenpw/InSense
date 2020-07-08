@@ -8,7 +8,7 @@ import { AiOutlineGift } from "react-icons/ai";
 import "./levelBoard.scss";
 
 const LevelBoard = (props) => {
-  const [level, setLevel] = useState(0);
+  const { level } = props;
   const thisYear = new Date().getFullYear();
   return (
     <>
@@ -16,15 +16,15 @@ const LevelBoard = (props) => {
         <h1 className="level-title">您的優惠</h1>
         <h4 className="level-subtitle-title">12/31/{thisYear} 到期</h4>
         <div className="level-figure d-flex align-items-center justify-content-between">
-          <div className="new-customer">
-            <div className="new-customer-circle">
+          <div className="customer new-customer">
+            <div className="customer-circle">
               <div className={`level-circle ${!level ? "active" : ""}`}></div>
             </div>
             <p className="text-center">新客</p>
           </div>
           <div className="horizantal-bar flex-grow"></div>
-          <div className="senior-customer">
-            <div className="senior-customer-circle">
+          <div className="customer senior-customer">
+            <div className="customer-circle">
               <div className={`level-circle ${level ? "active" : ""}`}></div>
             </div>
             <p className="text-center">香客</p>

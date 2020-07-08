@@ -30,9 +30,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreditCardAssociation(props) {
   const classes = useStyles();
-  const { association, setAssociation } = props;
+  const { association, setAssociation, formatError = {},
+    setFormatError = () => { } } = props;
 
   const handleChange = (event) => {
+    const errObj = { ...formatError }
+    if (!event.target.value) {
+      errObj.association = '未填*'
+    } else {
+      delete errObj.association
+    }
+    setFormatError(errObj)
     setAssociation(event.target.value);
   };
   return (

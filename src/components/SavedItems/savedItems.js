@@ -33,8 +33,10 @@ function SavedItems(props) {
     return obj;
   };
 
-  const changeSavedStatus = async () => {
+  const changeSavedStatus = async (e) => {
     // console.log("itemId", props.itemId);
+
+    e.stopPropagation()
 
     if (user.logInStatus) {
       const responseWishList = await toggleWishListAsync();

@@ -1,26 +1,26 @@
-@import '../../styles/style.scss';
+@import "../../styles/style.scss";
 
-  .detail-content-wrapper{
-    padding:0 16px;
-    margin:32px 0 ;
+.detail-content-wrapper {
+    padding: 0 16px;
+    margin: 32px 0;
     color: $main-black;
-    >li{
-      padding:8px 0;
-      >ul{
-        padding:8px 16px;
-        >li{
-          line-height: 32px;
+    > li {
+        padding: 8px 0;
+        > ul {
+            padding: 8px 16px;
+            > li {
+                letter-spacing: 1px;
+                line-height: 32px;
+            }
         }
-      }
-      .class-content{
-        list-style: none;
-      }
+        .class-content {
+            list-style: none;
+        }
     }
-  }
+}
 
-  @media (max-width:768px){
-    .detail-content-wrapper{
-      padding:0 32px;
+@media (max-width: 768px) {
+    .detail-content-wrapper {
+        padding: 0 32px;
     }
-  }
-  
+}

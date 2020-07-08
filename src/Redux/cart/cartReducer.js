@@ -4,10 +4,16 @@ import { addItemToCart, removeItemFromCart } from "./cartUtils";
 const INITIAL_STATE = {
   hidden: false,
   cartItems: [],
+  couponCode: '',
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case CartActionTypes.ADD_COUPONCODE:
+      return {
+        ...state,
+        couponCode: action.payload
+      }
     case CartActionTypes.TOGGLE_CART_HIDDEN:
       return {
         ...state,

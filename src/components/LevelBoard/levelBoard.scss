@@ -23,13 +23,12 @@
   .level-figure {
     width: 210px;
     margin-bottom: 72px;
-    .new-customer {
+    .customer {
       width: 54px;
       height: 54px;
-      .new-customer-circle {
+      .customer-circle {
         width: calc(100% - 2px);
         height: calc(100% - 2px);
-        // background-color: $main-orange;
         border: 1px solid $main-gray;
         border-radius: 50%;
         .level-circle {
@@ -38,6 +37,7 @@
           height: calc(100% - 6px);
           background-color: $main-gray;
           border-radius: 50%;
+          transition: 3s;
           &.active {
             background-color: $main-orange;
           }
@@ -53,33 +53,6 @@
     .horizantal-bar {
       height: 2px;
       background-color: $main-gray;
-    }
-    .senior-customer {
-      width: 54px;
-      height: 54px;
-      .senior-customer-circle {
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        // background-color: $main-orange;
-        border: 1px solid $main-gray;
-        border-radius: 50%;
-        .level-circle {
-          margin: 3px;
-          width: calc(100% - 6px);
-          height: calc(100% - 6px);
-          background-color: $main-gray;
-          border-radius: 50%;
-          &.active {
-            background-color: $main-orange;
-          }
-        }
-      }
-      p {
-        margin-top: 12px;
-        color: $main-black;
-        opacity: 0.8;
-        font-size: 14px;
-      }
     }
   }
   .discount-description {

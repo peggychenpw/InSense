@@ -3,6 +3,16 @@
 .bg-video {
   height: calc(100vh - 100px);
 
+  .errorText {
+    z-index: 30;
+    font-size: 40px;
+    position: absolute;
+    bottom: 80px;
+    right: 110px;
+    font-family: $Roboto;
+    color: black;
+  }
+
   .go-buy-btn {
     z-index: 20;
     position: absolute;
@@ -10,7 +20,6 @@
     right: 15%;
     border: 1px solid $main-scarlet;
     border-radius: 0;
-    color: $main-scarlet;
     width: 200px;
     height: 48px;
     font-size: 18px;

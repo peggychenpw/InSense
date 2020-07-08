@@ -1,0 +1,220 @@
+@import '../../styles/style.scss';
+
+
+.faq-wrapper {
+    margin: 0 auto;
+    width: 960px;
+
+
+
+    // .accordion-header {
+    //     cursor: pointer;
+    //     border: 1px solid black;
+    //     border-left: none;
+    //     border-right: none;
+    //     font-size: 24px;
+    //     font-weight: 400;
+    //     width: 960px;
+    //     margin: 0;
+    // }
+
+}
+
+.white-space {
+
+    margin: 200px;
+}
+
+
+.bottom {
+    margin: 0 auto;
+    width: 920px;
+    height: 240px;
+    background: rgba(230, 230, 230, .6);
+    align-items: center;
+    padding-left: 40px;
+
+}
+
+
+
+.email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .text {
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.9px;
+        color: $main-black;
+    }
+
+
+
+    .button {
+        color: $main-black;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: 300;
+
+
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px;
+            height: 50px;
+            background-color: $main-orange;
+            border: 1px solid $main-orange;
+            font-weight: 300;
+            letter-spacing: 0.9px;
+
+        }
+    }
+
+}
+
+.tel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .text {
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.9px;
+        color: $main-black;
+    }
+
+
+    .tel-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        width: 240px;
+        height: 56px;
+        font-weight: 300;
+        letter-spacing: 0.9px;
+        color: $main-black;
+    }
+}
+
+
+
+
+// .arrow-icon-position {
+//     position: absolute;
+//     right: 490px;
+//     // top: 2px;
+// }
+
+// .arrow-icon {
+//     transform: rotate(0deg);
+//     transition: all 0.3s ease-in-out;
+// }
+
+// .arrow-icon-active {
+//     transform: rotate(180deg);
+//     transition: all 0.3s ease-in-out;
+// }
+
+
+// .content-title-position {
+//     position: relative;
+//     left: 27px;
+// }
+
+
+
+// .content-position {
+//     position: relative;
+//     left: 58px;
+// }
+
+// .content-hidden {
+//     max-height: 0.1px;
+//     overflow: hidden;
+//     transition: all 0.25s ease-in-out;
+//     max-height: 0px;
+//     margin: 0 0 0 20px;
+//      margin: 5px;
+
+// }
+
+// // .test {
+// //     max-height: 0.1px;
+// //     overflow: hidden;
+// //     transition: all 0.25s ease-in-out;
+// // }
+
+// .active {
+//     max-height: 5000px;
+//     transition: all 3s ease-in-out;
+
+// }
+
+// .content-title-position {
+//     position: relative;
+//     left: 10px;
+//     margin: 0;
+//     padding-right: 30px;
+
+
+//     .content-title {
+//         font-size: 22px;
+//         width: 900px;
+
+
+//     }
+// }
+
+// .content {
+//     font-size: 16px;
+//     width: 800px;
+// }
+
+
+
+// /* plus & minus */
+
+
+// .plus-minus-toggle {
+//     cursor: pointer;
+//     height: 21px;
+//     position: relative;
+//     width: 21px;
+//     left: 28px;
+
+
+
+//     &:before,
+//     &:after {
+//         background: #000;
+//         content: "";
+//         height: 3px;
+//         left: -25px;
+//         position: absolute;
+//         top: 11px;
+//         width: 17px;
+//         transition: transform 500ms ease;
+//     }
+
+//     &:after {
+//         transform-origin: center;
+//     }
+
+//     &.collapsed {
+//         &:after {
+//             transform: rotate(90deg);
+//         }
+
+//         &:before {
+//             transform: rotate(180deg);
+//         }
+//     }
+// }

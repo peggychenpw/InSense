@@ -1,59 +1,67 @@
 @import "../../styles/style.scss";
 
 .index-subscribe-container {
-    margin: 40px auto 20px;
-    padding: 32px 0;
-    p {
-        font-size: 20px;
-        color: $main-black;
-    }
-    div{
-      width: fit-content;
+  margin: 40px auto 20px;
+  padding: 32px 0;
+
+  p {
+    font-size: 20px;
+    color: $main-black;
+  }
+
+  .email-input {
+    width: fit-content;
+    margin: 0 auto;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 13vw;
+      height: 1px;
+      background: $main-black;
       margin: 0 auto;
-      &::after{
-        content:'';
-        display: block;
-        width: 13vw;
-        height: 1px;
-        background: $main-black;
-        margin: 0 auto;
-        transition:.5s;
-      }
-      input {
-        width: 100%;
-        border: transparent;
-        text-align: center;
-        transition: .5s;
-        outline: none;
-        &::placeholder {
-            text-align: center;
-            font-size: 14px;
-        }
-      }
-      &:focus-within::after{
-        background: $main-blue;
-        opacity: .5;
-        width: 27vw;
-        height: 2px;
-        box-shadow: 0 0 2rem 2px rgba(99, 129, 168,.8);
-      }
-    }  
-    
-    
-   
-    .button-link {
-        text-decoration: none;
-        display: block;
-        max-width: 190px;
-        min-height: 50px;
-        border: 1px solid $main-blue;
-        line-height: 50px;
-        font-size: 20px;
-        color: $main-blue;
-        margin: 32px auto;
-        &:hover {
-            background-color: $main-sky-blue;
-            color: $main-white;
-        }
+      transition: .5s;
     }
+
+    input {
+      width: 100%;
+      border: transparent;
+      text-align: center;
+      transition: .5s;
+      outline: none;
+
+      &::placeholder {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+
+    &:focus-within::after {
+      background: $main-blue;
+      opacity: .5;
+      width: 27vw;
+      height: 2px;
+      box-shadow: 0 0 2rem 2px rgba(99, 129, 168, .8);
+    }
+  }
+
+
+
+  .button-link {
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    max-width: 190px;
+    min-height: 50px;
+    border: 1px solid $main-blue;
+    line-height: 50px;
+    font-size: 20px;
+    color: $main-blue;
+    margin: 32px auto;
+
+    &:hover {
+      background-color: $main-sky-blue;
+      color: $main-white;
+    }
+  }
 }
