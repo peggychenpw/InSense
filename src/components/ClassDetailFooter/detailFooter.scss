@@ -27,15 +27,17 @@
     height: 50px;
     text-decoration: none;
     line-height: 50px;
-    color: $main-orange;
     border: 2px solid $main-orange;
+    background-color: rgba(247, 182, 108, 0.1);
+    color: $main-orange;
     font-size: 18px;
     margin: 40px 0;
     cursor: pointer;
     &:hover {
-        border: 2px solid transparent;
-        background: $main-orange;
-        color: $main-white;
+      transition: 0.4s;
+      border: 2px solid $main-orange;
+      background-color: $main-orange;
+      color: $main-white;
     }
 }
 .popup-class {

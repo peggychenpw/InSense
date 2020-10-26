@@ -8,7 +8,7 @@ import { Input, FormControl, InputLabel } from "@material-ui/core";
 import CreditCardNumber from "../../components/CreditCardNumber/creditCardNumber";
 import CreditCardExpiration from "../../components/CreditCardExpiration/creditCardExpiration";
 import CreditCardAssociation from "../../components/CreditCardAssociation/creditCardAssociation";
-import { clearCart } from "../../Redux/cart/cartAction";
+import { clearCart, clearCouponCode } from "../../Redux/cart/cartAction";
 import Address from "../../components/Address/address";
 import InquiryAlert from "../../components/InquiryAlert/inquiryAlert";
 import axios from "axios";
@@ -35,6 +35,7 @@ const OrderPayMent = ({
   selectUserInfo,
   selectCouponCode,
   clearCart,
+  clearCouponCode
 }) => {
   const UserInfo = { ...selectUserInfo };
   console.log(selectCartTotal)
@@ -180,6 +181,7 @@ const OrderPayMent = ({
     e.preventDefault();
     const data = await addordersToSever();
     clearCart();
+    clearCouponCode()
     history.push(`/orders/orderdetail/${data.orderId}`);
   };
   //當saveCreditCard 改變時 從資料庫撈資料或變成空物件
@@ -459,6 +461,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   clearCart: () => dispatch(clearCart()),
+  clearCouponCode: () => dispatch(clearCouponCode())
 });
 
 export default withRouter(

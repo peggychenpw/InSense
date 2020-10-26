@@ -21,13 +21,21 @@ const FaqAccordionTitle = (props) => {
             setArrowIconActive(!arrowIconActive), clickTitle(e)
           )}
           
-          className="accordion-header"
+          className={`accordion-header
+
+
+         ${!props.titleId  ? "display-none" :" "}
+          
+          `}
         >
           {props.title}
           
           <FiChevronUp
             
-            className={`arrow-icon-position arrow-icon ${
+            className={`arrow-icon-position arrow-icon
+            ${!props.titleId  ? "display-none" :" "}
+            
+             ${ 
               arrowIconActive ? "arrow-icon-active" : ""
             }`}
           />

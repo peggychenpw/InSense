@@ -27,7 +27,7 @@ const ProgressBoard = (props) => {
           <div className="circle">
             <AnimatedProgressProvider
               valueStart={0}
-              valueEnd={(annualAmount * 100) / 10000}
+              valueEnd={(annualAmount * 100) / 50000}
               duration={3}
               easingFunction={easeQuadInOut}
             >
@@ -53,7 +53,7 @@ const ProgressBoard = (props) => {
                       本年度您已消費
                       <span className="d-flex align-items-end justify-content-end">
                         {" "}
-                        {Math.round((value * 10000) / 100)}{" "}
+                        {Math.round((value * 50000) / 100)}{" "}
                       </span>
                       元
                     </p>

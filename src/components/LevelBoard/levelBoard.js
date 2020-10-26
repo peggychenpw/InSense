@@ -3,6 +3,7 @@ import React, { useState } from "react";
 //react-icon
 import { RiCakeLine } from "react-icons/ri";
 import { AiOutlineGift } from "react-icons/ai";
+import { FaLevelUpAlt } from "react-icons/fa";
 
 //css
 import "./levelBoard.scss";
@@ -32,12 +33,12 @@ const LevelBoard = (props) => {
         </div>
         <div className="discount-description">
           <div className="discount d-flex align-items-end justify-content-between">
-            <RiCakeLine />
-            <p>生日折價優惠券</p>
+            <FaLevelUpAlt />
+            <p>滿五萬 升香客</p>
           </div>
           <div className="discount d-flex align-items-end justify-content-between">
             <RiCakeLine />
-            <p>香客消費金額九折</p>
+            <p>生日折價優惠券</p>
           </div>
           <div className="discount d-flex align-items-end justify-content-between">
             <AiOutlineGift />

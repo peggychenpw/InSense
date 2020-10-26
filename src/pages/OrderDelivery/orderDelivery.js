@@ -178,12 +178,12 @@ const OrderDelivery = (props) => {
         userPostCode: postCode,
         userBirthday: selectedDate.toLocaleDateString().split("/").join("-"),
       };
-      handleAlertOpen('確認寄送地址正確無誤', '2秒後跳轉至下一頁', true, true, 2000)
+      handleAlertOpen('確認寄送地址正確無誤', '1秒後跳轉至下一頁', true, true, 1000)
       setTimeout(() => {
         history.push("/orders/orderpayment", {
           data: data,
         });
-      }, 3500);
+      }, 1500);
 
     }
   };

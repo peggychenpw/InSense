@@ -7,6 +7,7 @@ const FaqAccordionSubtitle = (props) => {
   const [titleDropDownToggle, setTitleDropDownToggle] = useState(false);
   const [contentDropDownToggle, setContentDropDownToggle] = useState(true);
   const [plusMinusCollapsed, setPlusMinusCollapsed] = useState(true);
+  
 
   useEffect(() => {
     setTitleDropDownToggle(!titleDropDownToggle);
@@ -16,9 +17,11 @@ const FaqAccordionSubtitle = (props) => {
       if (el) {
         setContentDropDownToggle(false);
       } else {
-        setContentDropDownToggle(true);
-      }
+        setContentDropDownToggle(true);}
+    
     });
+
+    
   }, [props.active]);
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const FaqAccordionSubtitle = (props) => {
       : setPlusMinusCollapsed(false);
   }, [contentDropDownToggle]);
 
-
+  console.log(props.titleId,"4444")
   return (
     <>
       <div className={`content-title-position  `}>
@@ -38,8 +41,8 @@ const FaqAccordionSubtitle = (props) => {
               setPlusMinusCollapsed(!plusMinusCollapsed)
             )}
             className={`content-title-position content-hidden
-                      ${titleDropDownToggle ? "" : "active1"}
-                      `}
+             ${titleDropDownToggle ? "" : "active1"} `}
+                      
           >
             <span
               className={`plus-minus-toggle  content-title  ${

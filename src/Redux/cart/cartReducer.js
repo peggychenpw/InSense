@@ -14,6 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         couponCode: action.payload
       }
+    case CartActionTypes.CLEAR_COUPONCODE:
+      return {
+        ...state,
+        couponCode: ''
+      }
     case CartActionTypes.TOGGLE_CART_HIDDEN:
       return {
         ...state,

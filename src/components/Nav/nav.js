@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FiMenu,
-  FiSearch,
-  FiUser,
-  FiShoppingCart,
-  FiX,
-  FiChevronRight,
-} from "react-icons/fi";
+import { FiMenu, FiSearch, FiUser, FiX, FiChevronRight } from "react-icons/fi";
 import { Link, withRouter } from "react-router-dom";
 
 //Redux
@@ -52,6 +45,7 @@ const Nav = ({
       pathUrl: "/itemlist/category/home-scents",
     },
     { itemName: "體驗課程", name: "class", pathUrl: "/classlist" },
+    { itemName: "FAQ", name: "faq", pathUrl: "/FaqAccordion" },
   ];
   const brandItem = [
     {
@@ -178,10 +172,8 @@ const Nav = ({
     if (toggle.hidden || userToggle) {
       window.addEventListener("click", clickFunction);
     } else {
-      console.log(123);
       window.removeEventListener("click", clickFunction);
     }
-
     console.log(toggle.hidden, userToggle);
   }, [toggle.hidden, userToggle]);
 
@@ -219,7 +211,7 @@ const Nav = ({
               );
             })}
           </ul>
-          <ul>
+          <ul style={{ opacity: 0, cursor: "auto", pointerEvents: "none" }}>
             <Link className="menu-link" to="/FaqAccordion">
               <li className="d-flex align-items-center">
                 <FiChevronRight className="chevron-right" />

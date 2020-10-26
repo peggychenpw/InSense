@@ -29,9 +29,25 @@
     padding-left: 5px;
   }
 
+  
+
   .quantity {
     display: flex;
     padding-left: 25px;
+
+    button{
+      outline: none;
+      border: none;
+      background-color: transparent;
+      color: black;
+    }
+
+    button:disabled {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      color: black;
+    }
 
     .arrow {
       cursor: pointer;

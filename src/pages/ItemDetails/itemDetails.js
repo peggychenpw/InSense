@@ -104,8 +104,8 @@ const ItemDetails = (props) => {
                             }
                         />
                     ) : (
-                        ""
-                    )}
+                            ""
+                        )}
                     <ItemInfo
                         itemName={itemInfosData.itemName}
                         itemSize={itemInfosData.itemSize}
@@ -128,8 +128,7 @@ const ItemDetails = (props) => {
 const mapStateToProps = (store) => {
     return { user: store.user, userToggle: store.nav };
 };
-//Redux引入函式
-//mapDispatchToProps
+
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ userLogin, userLogOut }, dispatch);
 };

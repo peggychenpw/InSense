@@ -22,7 +22,7 @@ const OrderDeatil = ({ match, history }) => {
   }, [])
 
   const { orderId, deliveryData, orderItems, creditCardData, totalPrice, couponDiscount } = { ...orderDetail }
-  console.log(orderDetail)
+  console.log(totalPrice)
   return (
     <MainContainer>
       <div className="text-center position-relative order-payment-head">
@@ -75,11 +75,11 @@ const OrderDeatil = ({ match, history }) => {
           <div className='order-price-cotainer'>
             <div className='d-flex justify-content-between order-price-content'>
               <p>商品小計</p>
-              <p>$ {(totalPrice && couponDiscount) && (totalPrice + couponDiscount)}</p>
+              <p>$ {totalPrice ? !!couponDiscount ? (totalPrice + couponDiscount) : totalPrice : ''}</p>
             </div>
             <div className='d-flex justify-content-between order-price-content'>
               <p>優惠券</p>
-              <p>$ -{couponDiscount && couponDiscount}</p>
+              <p>$ {`${!!couponDiscount ? '-' + couponDiscount : 0}`}</p>
             </div>
           </div>
           <div className='order-totalPrice-container'>

@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { connect } from 'react-redux'
 import { userToggleFunc } from '../../Redux/nav/navAction'
 
+
 const DetailFooter = ({ classTime, match, history, classPrice, userToggleFunc }) => {
   const [reservationPeople, setReservationPeople] = useState('')
   const [reservationTime, setReservationTime] = useState('')
@@ -28,25 +29,23 @@ const DetailFooter = ({ classTime, match, history, classPrice, userToggleFunc })
       body: JSON.stringify(data)
     })
     const res = await response.json()
-    console.log(res)
 
-    // popup
     Swal.fire({
       title: res.logInStatus ? res.error === '人數超過上限' ? '人數超過上限' : res.error === '請選擇人數' ? '請選擇人數' : res.error === '請選擇時間' ? '請選擇時間' : `感謝${res.userInfo.userFirstName} 先生的預約` : '預約失敗',
       icon: res.logInStatus ? res.error ? 'info' : 'success' : 'error',
       html: res.success ?
         `<p>人數：${data.bookQty}<br/>
-         日期：${classTime}<br/>
-         時間：${data.bookTime}<br/></p>
-        `: res.error ? '' : '<br/>請先登入在做預約的服務<br/>',
+           日期：${classTime}<br/>
+           時間：${data.bookTime}<br/></p>
+          `: res.error ? '' : '<br/>請先登入在做預約的服務<br/><br/>',
       showCloseButton: true,
-      showConfirmButton: res.error ? false : true,
+      showConfirmButton: false,
       focusConfirm: false,
-      confirmButtonText:
-        res.success ? '<i class="fa fa-thumbs-up"></i> 查看預約' : '請先登入',
-      preConfirm: () =>
-        res.success ? history.push('/account/classpage') : userToggleFunc()
-      ,
+      // confirmButtonText:
+      //   res.success ? '<i class="fa fa-thumbs-up"></i> 查看預約' : '',
+      // preConfirm: () =>
+      //   res.success ? history.push('/account/classpage') : ''
+      // ,
       customClass: {
         container: 'container-class',
         popup: 'popup-class',
@@ -56,6 +55,18 @@ const DetailFooter = ({ classTime, match, history, classPrice, userToggleFunc })
         closeButton: 'close-button-class'
       }
     })
+    if (!res.logInStatus) {
+      setTimeout(() => {
+        Swal.close()
+        userToggleFunc()
+      }, 1500)
+    }
+    if (res.success) {
+      setTimeout(() => {
+        Swal.close()
+        history.push('/classlist')
+      }, 2000)
+    }
   }
   const resetSelected = () => {
     const allSelect = document.querySelectorAll('select')

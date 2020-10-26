@@ -5,30 +5,30 @@
   margin-bottom: 15px;
 
   figure {
-    width: 30%;
+    width: 40%;
+    margin: 0;
   }
   img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height:80%;
   }
 
   .item-details {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     padding: 10px 20px;
     position: relative;
-
     .arrow {
       padding: 15px;
-      justify-content: right;
       cursor: pointer;
+      margin-right: 15px;
       position: absolute;
       right: 15px;
-      bottom: 20px;
+      bottom: 15px;
     }
 
     .name {

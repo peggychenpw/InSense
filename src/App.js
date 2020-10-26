@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//persistor to store data in local storage
-// import { PersistGate } from "redux-persist/integration/react";
-// import { persistor } from "./Redux/store";
+
 import "normalize.css";
 
 //模板
@@ -29,7 +27,7 @@ import AccountDashboard from "./pages/AccountDashboard/accountDashboard";
 
 import OrderDelivery from "./pages/OrderDelivery/orderDelivery";
 import ErrorPage from "./pages/ErrorPage/errorPage";
-import OrderHistory from './pages/OrderHistory/orderHistory'
+import OrderHistory from "./pages/OrderHistory/orderHistory";
 import ShopPage from "./pages/shop/shop.component";
 import FaqAccordion from "./pages/FaqAccordion/FaqAccordion";
 import CheckoutPage from "./pages/Checkout/chechout";
@@ -38,7 +36,6 @@ import MyCoupon from "./components/MyCoupon/MyCoupon";
 function App() {
   return (
     <Router>
-      {/* <PersistGate persistor={persistor}> */}
       <>
         <Nav />
         <MainContent>
@@ -115,13 +112,10 @@ function App() {
             <Route path="/">
               <IndexPage />
             </Route>
-
-            
           </Switch>
         </MainContent>
         <Footer />
       </>
-      {/* </PersistGate> */}
     </Router>
   );
 }

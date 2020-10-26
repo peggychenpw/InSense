@@ -4,7 +4,7 @@ import './classHead.scss'
 const ClassHead = ({ classImgDir, classImg, title, content, content2 }) => {
   return (
     <>
-      <div className="class-head">
+      <div className="class-detail-head class-head">
         <div className="headLeft">
           <img className="object-fit-cover" src={`http://localhost:3030/images/${classImgDir}/${classImg}.png`} />
         </div>

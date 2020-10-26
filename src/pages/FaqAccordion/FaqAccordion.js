@@ -27,7 +27,7 @@ const FaqAccordion = (props) => {
 
     setTitleDropDownToggle(newObj)
     setAllClose(Object.values(titleDropDownToggle))
-    console.log(Object.values(titleDropDownToggle))
+    // console.log(Object.values(titleDropDownToggle))
     
   };
 
@@ -61,13 +61,19 @@ const FaqAccordion = (props) => {
         const titleId = el.titleId;
         newObj[titleId] = false;
       });
-      setTitleDropDownToggle(newObj);
-      console.log("newObj", newObj);
-// 
+      setTitleDropDownToggle(newObj); 
       setSubtitle(data[1]);
     })();
   }, []);
 
+  
+  useEffect(() =>{
+    if(props.titleId === " "){
+      setTitleDropDownToggle("")
+    }
+
+  },[props.titleId])
+  
   return (
     <>
 <MainContainer>
@@ -86,7 +92,7 @@ const FaqAccordion = (props) => {
             .filter((subData, item) => subData.titleId === el.titleId)
             .map(
               (props, index) => (
-                console.log(value, "+++++1"),
+
                 (
                   <FaqAccordionSubtitle
                     onClickSub={(e)=>subtitleAccordion(e)}
@@ -98,6 +104,7 @@ const FaqAccordion = (props) => {
                     active={titleDropDownToggle[props.titleId]}
                     value={props.id}
                     id={props.id}
+                    titleId={props.titleId}
                   />
                 )
               )

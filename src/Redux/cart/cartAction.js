@@ -23,6 +23,10 @@ export const addCouponCode = (couponCode) => ({
   payload: couponCode
 })
 
+export const clearCouponCode = () => ({
+  type: CartActionTypes.CLEAR_COUPONCODE
+})
+
 //itemDetails頁面增加指定數量進購物車按鈕
 export const addQuantity = (item, quantity) => ({
   type: CartActionTypes.ADD_QUANTITY,
