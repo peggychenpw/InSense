@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 資策會MFEE07大專題`（前端 React.js）`
 
-## Available Scripts
+此部份僅為前端程式碼，後端程式碼連結為：https://github.com/YiChengChen0608/InSense_Node
 
-In the project directory, you can run:
+## 第四組 香氛電商平台
 
-### `npm start`
++ 基礎技術: HTML5+ sass<br />
++ 前端技術: React.js + Redux + JavaScript(ES6)<br /> 
++ 後端技術: Node.js + express.js + MySQL <br />
++ 前端套件: MATERIAL-UI<br />
++ 版本控制: git (github)<br />
++ 編輯器技術: vscode<br />
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 功能說明
 
-### `npm test`
+### 首頁 <br />
+協作者：#CTC076 &nbsp;  #LucianoKJ &nbsp; #peggychenpw &nbsp; #ReiYu01 &nbsp; #YiChengChen0608
+  <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/index.png" width="720" />
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 會員系統 (CRUD)<br />
+協作者：#LucianoKJ
++ 登入頁 <br /> 
++ 忘記密碼 <br />
++ 預先儲存付款資訊 <br /> 
++ 帳戶資訊<br/>
+   <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E5%B8%B3%E6%88%B6%E8%B3%87%E8%A8%8A.png" width="720" /><br /> 
 
-### `npm run build`
+### 購物車系統 <br />
+協作者：#peggychenpw &nbsp;#CTC076
+ + 加入商品 <br />
+ + 購物車詳細頁 <br />
+   <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E8%B3%BC%E7%89%A9%E8%BB%8A%E8%A9%B3%E7%B4%B0%E9%A0%81.png" width="720" /><br /> 
+ 
+### 願望清單系統 (database)<br />
+協作者：#LucianoKJ &nbsp;#ReiYu01
+ + 加進願望清單 <br />
+   <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/saveItem.png" width="180" /><br /> 
+ + 願望清單詳細頁 <br />
+   <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E9%A1%98%E6%9C%9B%E6%B8%85%E5%96%AE%E8%A9%B3%E7%B4%B0.png" width="720" /><br /> 
+ 
+### 商品資訊<br />
+協作者：#LucianoKJ &nbsp;#ReiYu01
++ 商品頁面 <br />
++ 篩選系統 <br />
+  <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/filter%E5%8A%9F%E8%83%BD.png" height="360" />
+  <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E5%83%B9%E6%A0%BCfilter.png" height="180" />
+### 訂單系統 (CRD)<br />
+協作者：#peggychenpw &nbsp;#YiChengChen0608
++ 寄送資訊 <br />
++ 付款資訊 <br />
++ 訂單詳細頁 <br />
+  <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E8%A8%82%E5%96%AE%E8%A9%B3%E7%B4%B0.png" height="360" />
+### 優惠券訂閱系統<br />
+協作者：#CTC076
++ 優惠券取得<br />
+  <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/subscri.png" height="180" />
+### 課程預約系統<br />
+協作者：#YiChengChen0608
+ + 預約前與預約後 <br />
+    <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E8%AA%B2%E7%A8%8B%E5%8D%A1%E7%89%87.png" height="360" />
+    <img src="https://github.com/YiChengChen0608/InSense/blob/master/public/images/readmeImg/%E8%AA%B2%E7%A8%8B%E5%8D%A1%E7%89%87(%E9%A0%90%E7%B4%84%E5%BE%8C).png"  height="360" />
+ + 課程詳細頁 <br />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 如何使用?
 
-### `npm run eject`
++ 安裝 / npm install
++ 啟動 / npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 使用版權
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
++ 圖片和影片僅作為模擬使用，不可公開商業使用
