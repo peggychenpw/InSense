@@ -120,9 +120,6 @@ const CheckoutPage = ({
               e.preventDefault();
               e.stopPropagation();
               userToggleFunc();
-            } if (!total) {
-              console.log("no item")
-
             } else {
               history.push("/orders/orderDelivery");
             }
