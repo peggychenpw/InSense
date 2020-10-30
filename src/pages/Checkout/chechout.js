@@ -35,6 +35,7 @@ const CheckoutPage = ({
   const [DisCountValue, setDiscountValue] = useState(0);
   const [Disabled, setDisabled] = useState(false)
 
+
   async function getData() {
     const request = new Request("http://localhost:3030/coupon", {
       method: "GET",
@@ -65,6 +66,8 @@ const CheckoutPage = ({
       addCouponCode(codeValue)
     }
   }, [Data]);
+
+
 
   return (
     <div className="checkout-page">
@@ -106,24 +109,37 @@ const CheckoutPage = ({
       <div className="sum">小計： ${total}</div>
       <div className="discount">折扣: ${DisCountValue} </div>
       <div className="total">總計: NT${total - DisCountValue}</div>
+      {total ?
+        <Button
+          className="checkout-button"
+          variant="outlined"
+          inverted={true}
+          onClick={(e) => {
+            if (!userSelect) {
+              console.log(userSelect);
+              e.preventDefault();
+              e.stopPropagation();
+              userToggleFunc();
+            } if (!total) {
+              console.log("no item")
 
-      <Button
-        className="checkout-button"
-        variant="outlined"
-        inverted={true}
-        onClick={(e) => {
-          if (!userSelect) {
-            console.log(userSelect);
-            e.preventDefault();
-            e.stopPropagation();
-            userToggleFunc();
-          } else {
-            history.push("/orders/orderDelivery");
-          }
-        }}
-      >
-        確認訂單
-        </Button>
+            } else {
+              history.push("/orders/orderDelivery");
+            }
+          }}
+        >
+          確認訂單
+      </Button> :
+        <Button
+          className="checkout-button"
+          variant="outlined"
+          inverted={true}
+          disabled
+        >
+          購物車太空囉
+    </Button>
+      }
+
     </div>
   );
 }

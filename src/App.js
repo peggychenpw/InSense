@@ -54,9 +54,6 @@ function App() {
             <Route path="/itemdetail/:itemId?">
               <ItemDetails />
             </Route>
-            <Route path="/errorPage">
-              <ErrorPage />
-            </Route>
             <Route path="/orders">
               <Route path="/orders/checkout">
                 <CheckoutPage />
@@ -108,6 +105,9 @@ function App() {
               <Route path="/account/MyCoupon">
                 <MyCoupon />
               </Route>
+            </Route>
+            <Route path="/404">
+              <ErrorPage />
             </Route>
             <Route path="/">
               <IndexPage />

@@ -37,7 +37,7 @@ const DetailFooter = ({ classTime, match, history, classPrice, userToggleFunc })
         `<p>人數：${data.bookQty}<br/>
            日期：${classTime}<br/>
            時間：${data.bookTime}<br/></p>
-          `: res.error ? '' : '<br/>請先登入在做預約的服務<br/><br/>',
+          `: res.error ? '' : '<br/>請先登入再做預約的服務<br/><br/>',
       showCloseButton: true,
       showConfirmButton: false,
       focusConfirm: false,

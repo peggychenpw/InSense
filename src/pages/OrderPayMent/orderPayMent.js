@@ -263,14 +263,7 @@ const OrderPayMent = ({
               setCardNumberThird={setCardNumberThird}
               setCardNumbeForth={setCardNumbeForth}
             />
-            <CreditCardExpiration
-              cdMonth={cdMonth}
-              cdYear={cdYear}
-              setCdMonth={setcdMonth}
-              setCdYear={setcdYear}
-              formatError={formatError}
-              setFormatError={setFormatError}
-            />
+
           </div>
           <div className='credit-card-demo2'>
             <div className='black-strip'></div>
@@ -354,7 +347,7 @@ const OrderPayMent = ({
             </div>
           </div>
           <div className="subcontent-date position-relative">
-            到期日期
+            <p className="expire-title">到期日期</p>
             <div className="credit-card-date">
               <CreditCardExpiration
                 cdMonth={cdMonth}

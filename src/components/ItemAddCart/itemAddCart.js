@@ -39,7 +39,7 @@ const ItemAddCart = (item) => {
                 <FiPlus
                     className="plus"
                     onClick={() => {
-                        setQuantity(quantity + 1);
+                        setQuantity(quantity + 1 > 10 ? 10 : quantity + 1);
                     }}
                     style={{ cursor: "pointer" }}
                 ></FiPlus>
